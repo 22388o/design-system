@@ -1,6 +1,387 @@
 <!-- Release notes authoring guidelines: http://keepachangelog.com/ -->
 <!-- On release, add general notes here. In time the legacy release notes will be add to this -->
 
+## 2.23.2 - February 1, 2024
+
+## 2.23.1 - January 16, 2024
+
+## 2.23.0 - December 14, 2023
+
+- Inbuilt Header introduced for tabs. The header scales as per the size modifiers.
+- Updated icons to `v10.8.2`
+  - Standard Set:
+    - Added custody_chain_entry
+    - Added custody_entry_verification
+    - Added custody_override
+    - Updated data_cloud
+    - Added digital_verification_config_group
+    - Added digital_verification_config
+    - Added linked
+    - Added prompt_builder
+    - Added real_time
+    - Added scheduling_workspace_territory
+    - Updated story
+    - Added title_party
+    - Added work_summary
+
+  - Utility Set:
+    - Added add_above
+    - Added add_below
+    - Updated apex_alt
+    - Added asset_repossessed
+    - Updated data_cloud
+    - Updated einstein_alt
+    - Added locked_with_additions
+    - Added payment_deferred
+    - Added plane
+    - Added prompt_builder
+    - Added real_time
+    - Added record_collection
+    - Added sparkle
+
+- Updated `disabled` state colors for all components.
+- Added `aria-label="disabled"` to `RichTextEditor` component which is similar to `RteToolbar`.
+- Added Button element for `Pill` remove feature. Now remove button is focusable and can be clickable.
+- Updated RTL stylings for `setup-assistant` component
+
+## 2.22.2 - November 9, 2023
+
+
+## 2.22.1 - November 2, 2023
+
+
+## 2.22.0 - August 16, 2023
+
+- Updated icons to `v10.7.0`
+  - Standard Set:
+    - Added `attribute_based_pricing`
+    - Added `bundles_pricing`
+    - Added `data_cloud`
+    - Added `data_graph`
+    - Added `dynamic_highlights_panel`
+    - Added `header_discounts`
+    - Added `impact_outcome`
+    - Added `impact_strategy_assignment`
+    - Added `impact_strategy`
+    - Added `indicator_assignment`
+    - Added `indicator_definition`
+    - Added `indicator_performance_period`
+    - Added `indicator_result`
+    - Added `manual_discounts`
+    - Added `no_code_model`
+    - Added `outcome_activity`
+    - Added `panel_detail`
+    - Added `price_adjustment_matrix`
+    - Added `registered_model`
+    - Added `repeaters`
+    - Added `scheduling_workspace`
+    - Updated `story`
+    - Added `time_period`
+    - Added `uploaded_model`
+    - Added `volume_discounts`
+    - Added `walkthroughs`
+
+  - Utility Set:
+    - Added `apex_alt`
+    - Added `data_cloud`
+    - Added `data_graph`
+    - Added `data_transforms`
+    - Added `guidance`
+    - Added `indicator_performance_period`
+    - Added `mixed_sources_mapping`
+    - Added `page_structure`
+    - Added `visibility_rule_assigned`
+    - Added `walkthroughs`
+
+## Fixed
+
+- Updated background colors for Standard and Actions icons
+- Standard Icons Set
+  - Updated `event`
+  - Updated `dashboard`
+  - Updated `case`
+  - Updated `note`
+  - Updated `contact`
+  - Updated `lead`
+  - Updated `campaign`
+  - Updated `products`
+  - Updated `user`
+  - Updated `contract`
+  - Updated `category`
+  - Updated `catalog`
+  - Updated `store`
+  - Updated `buyer_account`
+  - Updated `buyer_group`
+  - Updated `delegated_account`
+  - Updated `entitlement_policy`
+
+## 2.21.5 - July 19, 2023
+
+## 2.21.4 - July 17, 2023
+
+- Updated icons to `v10.6.1`
+  - Utility Set:
+    - Added `edit_gpt`
+    - Updated `einstein`
+    - Added `sparkles`
+
+## 2.21.3 - June 29, 2023
+
+## Fixed
+
+- Correction in icons package version.
+- Updated placeholder text color for Rich Text Editor
+- Updated docked utility component's unread notification state icon color
+- Updated border colors for Feeds component
+
+## 2.21.2 - June 15, 2023
+
+## Fixed
+
+- Fixed text-selection color issues which was introduced by WCAG 2.1 updates.
+- Fixed border colors for components.
+
+## 2.21.1 - May 18, 2023
+
+## Fixed
+
+- Fixed grid column size classes where the `slds-col-` class now applies 'flex: 1 1 auto,' which breaks grid layouts when combined with `slds-small|medium|large-size_*` classes. This results in incomplete rows and layout issues.
+
+## 2.21.0 - April 20, 2023
+
+## Fixed
+
+- Update transparency values (rgba and design tokens) with transparent SLDS global styling hooks
+- Changed anchor link ouline border black color to blue-50
+- Updated background colors for Standard and Actions icons
+- Updated icons to `v10.6.0`
+  - Standard Set:
+    - Added `bill_of_materials`
+    - Added `buyer_group_qualifier`
+    - Added `datashare_target`
+    - Added `datashares`
+    - Added `disclosure_and_compliance`
+    - Added `document_preview`
+    - Added `facility_bed`
+    - Added `market`
+    - Added `price_sheet`
+    - Added `mulesoft`
+
+  - Utility Set:
+    - Added `add_source`
+    - Added `app_web_messaging`
+    - Added `bookmark_stroke`
+    - Added `buyer_group_qualifier`
+    - Added `document_preview`
+    - Added `expired`
+    - Added `favorite_alt`
+    - Added `heart`
+    - Added `hourglass`
+    - Added `integration`
+    - Added `market`
+    - Added `more`
+    - Added `notification_off`
+    - Added `notification_snoozed`
+    - Added `profile_alt`
+    - Added `promotion_tiers`
+    - Added `sender_email`
+    - Added `service_appointment`
+    - Added `service_report`
+    - Added `toggle_off`
+    - Added `toggle_on`
+    - Added `mulesoft`
+
+## 2.20.1 - December 16, 2022
+
+- Updated colors for various components:
+  - Button Icons
+  - Carousel
+  - Checkbox Button
+  - Checkbox Toggle
+  - Checkbox
+  - Combobox
+  - Data Tables
+  - Dynamic Icons
+  - File Selector
+  - Pills
+  - Popovers
+  - Progress Indicator
+  - Radio Group
+  - Select
+  - Spinners
+  - Split View
+  - Tabs
+  - Visual Picker
+
+## 2.20.0 - December 15, 2022
+
+- Updated constant colors codes with global slds hooks
+- Added two new dependencies for SLDS global styling hooks generation,
+  - `@salesforce-ux/sds-styling-aliases` with version `0.2.4`
+  - `@salesforce-ux/sds-styling-hooks` with version `1.1.0-alpha.2`
+- Updated `gulp` file to include SLDS global hooks generation as part of build and dist jobs
+- Updated design tokens in every component and utility with SLDS global styling hooks (except Brand-related tokens)
+- Updated CI workflows migrating from CircleCI to GitHub Actions
+- Updated icons to `v10.5.5`
+  - Standard Set:
+    - Added `asset_hierarchy`
+    - Added `budget_category_value`
+    - Added `budget_period`
+    - Updated `crypto_category_wallet_group`
+    - Added `crypto_transaction_envelope_change_snapshot`
+    - Added `data_transforms`
+    - Added `funding_award_adjustment`
+    - Added `funding_requirement`
+    - Added `promotion_tiers`
+    - Added `slack_conversations`
+    - Added `your_account`
+
+  - Utility Set:
+    - Added `asset_object`
+    - Added `budget_category_value`
+    - Added `budget_period`
+    - Added `contact`
+    - Added `funding_award_adjustment`
+    - Added `funding_requirement`
+    - Added `http`
+    - Added `knowledge_smart_link`
+    - Added `lead`
+    - Added `maintenance_plan`
+    - Added `no_return`
+    - Added `opportunity`
+    - Added `orders`
+    - Added `product`
+    - Added `proposition`
+    - Added `queue`
+    - Added `send_log`
+    - Added `service_contract`
+    - Added `slack_conversations`
+    - Added `your_account`
+
+  - DocType Set:
+    - Updated `rtf`
+    - Updated `folder`
+    - Updated `library_folder`
+
+- Updated BG color to below Standard Icons
+  - `connect_wallet`
+  - `crypto_product_category_wallet_role`
+  - `crypto_product`
+  - `crypto_transaction_envelope_change_log`
+  - `crypto_transaction_envelope`
+  - `crypto_transaction`
+  - `crypto_wallet_group_item`
+  - `crypto_wallet_group`
+  - `crypto_wallet`
+  - `nft_settings`
+  - `nft_studio`
+## 2.19.0 - August 11, 2022
+
+- Updated icons to `v10.4.0`
+  - Standard Set:
+    - Added `ai_accelerator_card`
+    - Added `connect_wallet`
+    - Added `contract_line_outcome`
+    - Added `contract_line_outcome_data`
+    - Added `crypto_category_wallet_group`
+    - Added `crypto_product`
+    - Added `crypto_product_category_wallet_role`
+    - Added `crypto_transaction`
+    - Added `crypto_transaction_envelope`
+    - Added `crypto_transaction_envelope_item`
+    - Added `crypto_wallet`
+    - Added `crypto_wallet_group`
+    - Added `crypto_wallet_group_item`
+    - Added `customer`
+    - Added `customer_workspace`
+    - Added `learner_program`
+    - Added `nft_settings`
+    - Added `nft_studio`
+    - Added `prompt`
+    - Added `setup_modal`
+    - Added `snippet_alt`
+    - Added `tax_policy`
+    - Added `tax_rate`
+    - Added `tax_treatment`
+    - Added `water`
+
+  - Action Set:
+    - Added `action_scan_enabled`
+    - Added `action_scan_disabled`
+
+  - Utility Set:
+    - Added `captions`
+    - Added `contract_line_outcome`
+    - Added `contract_line_outcome_data`
+    - Added `customer`
+    - Added `customer_workspace`
+    - Added `detach`
+    - Added `hazmat_equipment`
+    - Added `label`
+    - Added `labels`
+    - Added `record_alt`
+    - Added `segments`
+    - Added `tax_policy`
+    - Added `tax_rate`
+    - Added `tax_treatment`
+    - Added `tollways`
+    - Added `transport_bicycle`
+    - Added `transport_heavy_truck`
+    - Added `transport_light_truck`
+    - Added `transport_walking`
+    - Added `utility`
+    - Added `water`
+
+- BRAND updates to below colors of the palette
+  - `PALETTE_GREEN_20`: `#1C3326`
+  - `PALETTE_GREEN_40`: `#396547`
+  - `PALETTE_HOT_ORANGE_20`: `#4A2413`
+  - `PALETTE_INDIGO_20`: `#321D71`
+  - `PALETTE_PURPLE_80`: `#D7BFF2`
+  - `PALETTE_VIOLET_20`: `#481A54`
+
+## 2.18.1 - June 22, 2022
+
+- Corrected typos in blueprints:
+  - components/checkbox
+  - components/vertical-navigation
+
+## 2.18.0 - May 6, 2022
+
+- Removed `&_` shorthand from numerous selectors in SCSS files
+- Updated icons to v10.3.0
+  - Standard Set:
+    - Added `slack`
+    - Added `tableau`
+    - Added `dashboard_component`
+
+  - Utility Set:
+    - Updated `serialized_product_transaction`
+    - Updated `serialized_product`
+    - Added `data_model`
+    - Added `slack`
+    - Added `tableau`
+    - Added `video_off`
+
+## 2.17.5 - February 10, 2022
+
+- Updated design token `COLOR_BACKGROUND_DESTRUCTIVE_HOVER` so that it is a different color from `COLOR_BACKGROUND_DESTRUCTIVE`
+
+## 2.17.4 - February 3, 2022
+
+## 2.17.3 - January 27, 2022
+
+## 2.17.2 - January 20, 2022
+
+## 2.17.1 - January 6, 2022
+
+## 2.17.0 - December 16, 2021
+
+- Removed `&_` shorthand from numerous selectors in SCSS files
+- Added new standard color palette for neutral colors (black/white/grays)
+- Updated Styling Hooks table on component pages to display `slds`-namespaced Hooks
+- Updated icons to v10.2.2
+
 ## 2.16.2 - September 22, 2021
 
 ## 2.16.1 - August 25, 2021

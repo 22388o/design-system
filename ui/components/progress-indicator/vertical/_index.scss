@@ -28,17 +28,23 @@
       position: absolute;
       left: calc((#{$square-icon-utility-small} / 2) - 1px); // "-1px" accounts for half of line width to get true center
       width: 2px;
-      background-color: $progress-bar-color-background;
+      background-color: var(--slds-g-color-neutral-base-80, #{$progress-bar-color-background});
     }
 
     &:before {
       top: 0;
       bottom: 50%;
+      @include rtl() {
+        right: $spacing-large;
+      }
     }
 
     &:after {
       top: 50%;
       bottom: 0;
+      @include rtl() {
+        right: $spacing-large;
+      }
     }
 
     &:first-child:before,
@@ -50,7 +56,7 @@
     &.slds-is-completed:after,
     &.slds-is-active:before,
     &.slds-has-error:before {
-      background-color: $progress-bar-color-background-fill;
+      background-color: var(--slds-g-color-brand-base-50, #{$progress-bar-color-background-fill});
     }
   }
 
@@ -74,7 +80,7 @@
    * @restrict .slds-progress__list
    */
   .slds-progress__list-bordered .slds-progress__item:not(:last-child) .slds-progress__item_content {
-    border-bottom: 1px $color-border-separator-alt solid;
+    border-bottom: 1px var(--slds-g-color-border-base-1, #{$color-border-separator-alt}) solid;
   }
 
   .slds-progress__marker {
@@ -83,6 +89,9 @@
     margin-right: $spacing-medium;
     min-width: $square-icon-utility-small;
     z-index: 5;
+    @include rtl() {
+      margin-left: $spacing-medium;
+    }
   }
 
   .slds-progress__marker_icon {
@@ -93,7 +102,7 @@
   .slds-progress__item.slds-is-completed .slds-progress__marker_icon {
 
     svg {
-      fill: $progress-bar-color-background-fill;
+      fill: var(--slds-g-color-brand-base-60, #{$progress-bar-color-background-fill});
     }
   }
 
@@ -106,14 +115,14 @@
   .slds-progress__item.slds-is-completed .slds-progress__marker_icon-success {
 
     svg {
-      fill: $progress-bar-color-background-fill-success;
+      fill: var(--slds-g-color-success-base-50, #{$progress-bar-color-background-fill-success});
     }
   }
 
   .slds-progress__item.slds-has-error .slds-progress__marker_icon {
 
     svg {
-      fill: $color-text-error;
+      fill: var(--slds-g-color-error-base-40, #{$color-text-error});
     }
   }
 }
@@ -133,7 +142,7 @@
     &.slds-is-active:before,
     &.slds-has-error:before {
       opacity: 0.3;
-      background-color: $progress-bar-color-background-fill-success;
+      background-color: var(--slds-g-color-success-base-50, #{$progress-bar-color-background-fill-success});
     }
   }
 }

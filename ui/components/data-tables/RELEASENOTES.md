@@ -4,6 +4,24 @@
 
 <!-- ## [Unreleased] -->
 
+## 2.22.0
+
+### Added
+
+- Added `font-weight` property in `.slds-is-edited` & `.slds-has-error` to provide secondary indicator for the text
+- Updated `Accessibility` section in `docs.mdx` documentation file for bold text
+
+## 2.22.0
+
+### Changed
+
+- Removed `aria-label` from table header to prevent from reading twice headers.
+## 2.17.0
+
+### Added
+
+- Added `slds-cell_action-mode` to blueprints of actionable data tables
+
 ## 2.15.2
 
 ### Added

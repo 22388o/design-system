@@ -2,6 +2,24 @@
 
 # Progress Ring Release Notes
 
+## 2.21.0
+
+### Added
+
+- Added aria-label attribute to the progress ring to meet accessibility requirements.
+
+## 2.22.0
+
+### Fixed
+
+- Fixed duplicate IDs by adding helper method 
+
+## 2.17.0
+
+### Added
+
+- Added a shape to the progress ring to better visually indicate value by more than color alone.
+
 ## 2.15.1
 
 ### Changed

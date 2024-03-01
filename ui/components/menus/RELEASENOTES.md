@@ -2,6 +2,18 @@
 
 # Menus Release Notes
 
+## 2.23.0
+
+### Changed
+
+- Updated Dropdown Inverse item disabled color
+
+## 2.21.0
+
+## Fixed
+
+- Fixed invalid aria roles issue in subheadings with `role=presentation`
+
 <!-- ## [Unreleased] -->
 
 ## 2.15.1

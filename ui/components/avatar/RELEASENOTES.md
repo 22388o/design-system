@@ -2,7 +2,21 @@
 
 # Avatar Release Notes
 
+## 2.19
+
+### Fixed
+
+- Fixed base group image, group image medium and group image small hardcoded image paths
+
+## 2.17.0
+
+### Added
+
+- Added `slds` as the default namespace with `sds` fallbacks for Styling Hooks
+- Added CSS Custom Property reassignments for variants
+
 <!-- ## [Unreleased] -->
+
 ## 2.13.3
 
 ### Changed

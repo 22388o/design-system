@@ -3,6 +3,8 @@
 
 import React from 'react';
 import ButtonIcon, { HintParent } from '../';
+import {Button} from '../../buttons/base/example';
+import SvgIcon from '../../../shared/svg-icon';
 
 export default [
   {
@@ -56,6 +58,21 @@ export let examples = [
           title="Settings"
         />
       </HintParent>
+    )
+  },
+  {
+    // this was put in to place to test a styling hooks edge case
+    id: 'button-icon-lbc-mismatch',
+    label: 'Button Icon - LBC Mismatch',
+    element: (
+      <Button className="slds-button_icon slds-button_icon-border">
+        <span className="slds-assistive-text">Error</span>
+        <SvgIcon
+          sprite="utility"
+          symbol="clock"
+          className="slds-button__icon slds-icon-text-error"
+        />
+      </Button>
     )
   }
 ];

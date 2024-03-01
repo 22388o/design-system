@@ -4,6 +4,34 @@
 
 <!-- ## [Unreleased] -->
 
+## 2.18.0
+
+### Added
+
+- Added styling changes to support radio group with help text icon.
+- Added examples: Required with help text icon and Right to left required with help text icon to documentation
+- Added required with help text icon and tooltip example
+
+### Fixed
+
+- Right to left legend to be right aligned and match the alignment of content.
+
+## 2.17.5
+
+### Fixed
+- Reverted label layout changes introduced in 2.17.0
+
+## 2.17.0
+
+### Added
+
+- Added `slds` as the default namespace with `sds` fallbacks for Styling Hooks.
+- Added CSS Custom Property reassignments for variants and states
+
+### Changed
+
+- Labels will no longer wrap below the radio button. When the label text wraps, it will now go directly under the previous line.
+
 ## 2.14.0
 
 ### Added

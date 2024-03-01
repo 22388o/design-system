@@ -3,6 +3,38 @@
 # Checkbox Release Notes
 
 <!-- ## [Unreleased] -->
+## 2.22.1
+
+### Fixed
+- High contrast when the focus is placed on it.
+
+## 2.18.0
+
+### Fixed
+- Right to left legend to be right aligned and match the alignment of content.
+- Checkbox margin to properly support RTL.
+
+## 2.17.5
+
+### Fixed
+- Reverted layout changes originally introduced in 2.17.0
+
+## 2.17.4
+
+### Fixed
+- Checkbox inputs will no longer collapse horizontally when a label with a large amount of text is used.
+- All elements of an individual required checkbox (asterisk, input, and label) are now properly horizontally aligned.
+
+## 2.17.0
+
+### Added
+
+- Added `slds` as the default namespace with `sds` fallbacks for Styling Hooks.
+- Added CSS Custom Property reassignments for variants and states
+
+### Changed
+
+- Labels will no longer wrap below the checkbox. When the label text wraps, it will now go directly under the previous line.
 
 ## 2.14.0
 

@@ -3,6 +3,39 @@
 # Buttons Release Notes
 
 <!-- ## [Unreleased] -->
+
+## 2.21.0
+
+### Added
+
+- Configured `--slds-c-button-text-color-hover` Styling hook in Button with dual-stateful to accurately apply the text color on-hover 
+
+## 2.18.0
+
+### Changed
+
+- Removed `vertical-align` from button non-base variants to create vertical alignment consistency among all the buttons.
+
+## 2.17.2
+
+### Added
+
+- Added `--slds-c-icon-color-foreground` Styling Hook to Button with Icon variant to accurately apply icon color updates
+  - Due to how the Lightning Base Component is configured, this is required to allow CSS Custom Property reassignment to function within Button Icons
+
+## 2.17.0
+
+### Added
+- Added Styling Hooks for Stateful Button and Dual Stateful Button.
+- Added missing `slds`-namespaced Styling Hooks (originally added in 2.16.0)
+
+## 2.16.0
+
+### Added
+
+- Added `slds` as the default namespace with `sds` fallbacks for Styling Hooks
+- Added CSS Custom Property reassignments for variants and states (e.g., focus, active, hover)
+
 ## 2.15.5
 
 ### Added

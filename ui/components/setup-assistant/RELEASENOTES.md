@@ -4,6 +4,18 @@
 
 <!-- ## [Unreleased] -->
 
+## 2.22.2
+
+### Changed
+
+- Moved unscoped .slds-media__figure to setup-assistant rtl styles
+
+## 2.22.1
+
+### Added
+
+- Matching styles for [dir=rtl] added.
+
 ## 2.16.0
 
 ### Changed

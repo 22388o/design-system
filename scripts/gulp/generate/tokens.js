@@ -11,6 +11,8 @@ import through from 'through2';
 import Vinyl from 'vinyl';
 import paths from '../../helpers/paths';
 
+require('../../../formats/custom-props');
+
 // Some transforms are commented out because the use cases are lacking
 let formatTransforms = _({
   web: [

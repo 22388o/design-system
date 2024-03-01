@@ -6,45 +6,46 @@ import {
   Modal,
   ModalHeader,
   ModalContent,
-  ModalFooter
+  ModalFooter,
+  Backdrop
 } from '../../modals/base/example';
 
 export default (
   <div className="demo-only" style={{ height: '24rem' }}>
-    <Modal
-      tabIndex="0"
-      role="alertdialog"
-      aria-labelledby="prompt-heading-id"
-      aria-describedby="prompt-message-wrapper"
-      className="slds-modal_prompt"
-    >
-      <ModalHeader
-        className="slds-theme_error slds-theme_alert-texture"
+    <Backdrop>
+      <Modal
+        tabIndex="0"
+        role="alertdialog"
+        aria-labelledby="prompt-heading-id"
+        aria-describedby="prompt-message-wrapper"
+        className="slds-modal_prompt"
         closeButton={false}
       >
-        <h2 className="slds-text-heading_medium" id="prompt-heading-id">
-          Service unavailable
-        </h2>
-      </ModalHeader>
+        <ModalHeader
+          className="slds-theme_error slds-theme_alert-texture"
+        >
+          <h1 className="slds-text-heading_medium" id="prompt-heading-id">
+            Service unavailable
+          </h1>
+        </ModalHeader>
+        <ModalContent
+          className="slds-p-around_medium"
+          id="prompt-message-wrapper"
+        >
+          <p>
+            Sit nulla est ex deserunt exercitation anim occaecat. Nostrud ullamco
+            deserunt aute id consequat veniam incididunt duis in sint irure nisi.
+            Mollit officia cillum Lorem ullamco minim nostrud elit officia tempor
+            esse quis. Cillum sunt ad dolore quis aute consequat ipsum magna
+            exercitation reprehenderit magna. Tempor cupidatat consequat elit
+            dolor adipisicing.
+          </p>
+        </ModalContent>
 
-      <ModalContent
-        className="slds-p-around_medium"
-        id="prompt-message-wrapper"
-      >
-        <p>
-          Sit nulla est ex deserunt exercitation anim occaecat. Nostrud ullamco
-          deserunt aute id consequat veniam incididunt duis in sint irure nisi.
-          Mollit officia cillum Lorem ullamco minim nostrud elit officia tempor
-          esse quis. Cillum sunt ad dolore quis aute consequat ipsum magna
-          exercitation reprehenderit magna. Tempor cupidatat consequat elit
-          dolor adipisicing.
-        </p>
-      </ModalContent>
-
-      <ModalFooter className="slds-theme_default">
-        <button className="slds-button slds-button_neutral">Got It</button>
-      </ModalFooter>
-    </Modal>
-    <div className="slds-backdrop slds-backdrop_open" />
+        <ModalFooter className="slds-theme_default">
+          <button className="slds-button slds-button_neutral">Got It</button>
+        </ModalFooter>
+      </Modal>
+    </Backdrop>
   </div>
 );

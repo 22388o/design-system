@@ -1,0 +1,15 @@
+name: Remove Label
+
+on: pull_request
+
+jobs:
+  VRT:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions-ecosystem/action-remove-labels@v1
+        with:
+          labels: |
+            vrt:chrome-ready
+            vrt:mobile-ready
+            vrt:full-ready

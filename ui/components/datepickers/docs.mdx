@@ -2,7 +2,7 @@ import CodeView from '../../../shared/components/CodeView';
 import DisplayColumn from '../../../shared/components/DisplayColumn';
 import DisplayGrid from '../../../shared/components/DisplayGrid';
 import Blockquote from '../../../shared/components/Blockquote';
-import { getDisplayElementById } from '../../shared/helpers';
+import { getDisplayElementById, getDemoStylesById } from '../../shared/helpers';
 import * as Base from './base/example';
 import * as Range from './range/example';
 
@@ -10,10 +10,8 @@ import * as Range from './range/example';
   A datepicker is a text input to capture a date. You can select a single date, date range or date and time.
 </div>
 
-<CodeView exampleOnly>
-  <Base.Context>
-    {getDisplayElementById(Base.default)}
-  </Base.Context>
+<CodeView exampleOnly demoStyles={getDemoStylesById(Base.default)}>
+  {getDisplayElementById(Base.default)}
 </CodeView>
 
 ## About Datepickers
@@ -84,83 +82,61 @@ The datepicker has the following markup requirements:
   - `esc` to close datepicker without choosing a date
 
 ## Base
-<CodeView>
-  <Base.Context>
-    {getDisplayElementById(Base.default)}
-  </Base.Context>
+<CodeView demoStyles={getDemoStylesById(Base.default)}>
+  {getDisplayElementById(Base.default)}
 </CodeView>
 
 ### States
 
 #### Date Selected
-<CodeView>
-  <Base.Context>
-    {getDisplayElementById(Base.states, 'datepicker-day-selected')}
-  </Base.Context>
+<CodeView demoStyles={getDemoStylesById(Base.states, 'datepicker-day-selected')}>
+  {getDisplayElementById(Base.states, 'datepicker-day-selected')}
 </CodeView>
 
 #### Date Picker Has Error
-<CodeView>
-  <Base.Context>
-    {getDisplayElementById(Base.states, 'datepicker-with-error')}
-  </Base.Context>
+<CodeView demoStyles={getDemoStylesById(Base.states, 'datepicker-with-error')}>
+  {getDisplayElementById(Base.states, 'datepicker-with-error')}
 </CodeView>
 
 #### Date Required
-<CodeView>
-  <Base.Context>
-    {getDisplayElementById(Base.states, 'datepicker-required')}
-  </Base.Context>
+<CodeView demoStyles={getDemoStylesById(Base.states, 'datepicker-required')}>
+  {getDisplayElementById(Base.states, 'datepicker-required')}
 </CodeView>
 
 #### Date Required, Date Picker Has Error
-<CodeView>
-  <Base.Context>
-    {getDisplayElementById(Base.states, 'datepicker-required-with-error')}
-  </Base.Context>
+<CodeView demoStyles={getDemoStylesById(Base.states, 'datepicker-required-with-error')}>
+  {getDisplayElementById(Base.states, 'datepicker-required-with-error')}
 </CodeView>
 
 
 ## Range
-<CodeView>
-  <Range.Context>
-    {getDisplayElementById(Range.default)}
-  </Range.Context>
+<CodeView demoStyles={getDemoStylesById(Range.default)}>
+  {getDisplayElementById(Range.default)}
 </CodeView>
 
 ### States
 
 #### Start Date Selected
-<CodeView>
-  <Base.Context>
-    {getDisplayElementById(Range.states, 'start-date')}
-  </Base.Context>
+<CodeView demoStyles={getDemoStylesById(Range.states, 'start-date')}>
+  {getDisplayElementById(Range.states, 'start-date')}
 </CodeView>
 
 #### End date selected (Same week)
-<CodeView>
-  <Base.Context>
-    {getDisplayElementById(Range.states, 'end-date-week')}
-  </Base.Context>
+<CodeView demoStyles={getDemoStylesById(Range.states, 'end-date-week')}>
+  {getDisplayElementById(Range.states, 'end-date-week')}
 </CodeView>
 
 #### End date selected (Different week)
-<CodeView>
-  <Base.Context>
-    {getDisplayElementById(Range.states, 'end-date-weeks')}
-  </Base.Context>
+<CodeView demoStyles={getDemoStylesById(Range.default)}>
+  {getDisplayElementById(Range.default)}
 </CodeView>
 
 #### Today - In selected range
-<CodeView>
-  <Base.Context>
-    {getDisplayElementById(Range.states, 'today-in-range')}
-  </Base.Context>
+<CodeView demoStyles={getDemoStylesById(Range.default)}>
+  {getDisplayElementById(Range.default)}
 </CodeView>
 
 #### Current And Adjacent Month In Selected Range
-<CodeView>
-  <Base.Context>
-    {getDisplayElementById(Range.states, 'span-across-month-in-range')}
-  </Base.Context>
+<CodeView demoStyles={getDemoStylesById(Range.default)}>
+  {getDisplayElementById(Range.default)}
 </CodeView>

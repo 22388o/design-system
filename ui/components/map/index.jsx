@@ -89,7 +89,7 @@ export const GoogleMap = props => {
         <iframe
           id="GoogleMapID"
           title="Google Maps iframe"
-          src="https://www.google.com/maps/embed/v1/place?q=1%20market%2C%20san%20francisco&key=AIzaSyDliLquGXGts9S8YtkWVolSQEJdBL1ZuWc"
+          src="https://sfdc-map.surge.sh/"
         />
       )}
     </div>
@@ -127,15 +127,14 @@ class Map extends Component {
       <Modal
         className="slds-modal_medium"
         aria-labelledby={modalHeadingId}
-        aria-describedby={modalContentId}
       >
         <ModalHeader>
-          <h2
+          <h1
             id={modalHeadingId}
             className="slds-text-heading_medium slds-hyphenate"
           >
             {heading}
-          </h2>
+          </h1>
         </ModalHeader>
         <ModalContent id={modalContentId}>
           <MapContainer

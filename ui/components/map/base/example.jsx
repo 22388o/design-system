@@ -10,12 +10,18 @@ export const Context = props => (
   </div>
 );
 
-export default (
-  <MapContainer
-    heading="Salesforce locations in United States (9)"
-    multipleCoordinates
-  />
-);
+export default [
+  {
+    id: 'default',
+    label: 'Default',
+    element: (
+      <MapContainer
+        heading="Salesforce locations in United States (9)"
+        multipleCoordinates
+      />
+    )
+  }
+];
 
 export let states = [
   {
@@ -49,7 +55,7 @@ export let examples = [
     element: (
       <React.Fragment>
         <Map heading={"Geo Code: 37°48'08.3\"N 122°15'55.2W"} footer />
-        <div className="slds-backdrop slds-backdrop_open" />
+        <div className="slds-backdrop slds-backdrop_open" role="presentation" />
       </React.Fragment>
     )
   },
@@ -63,7 +69,7 @@ export let examples = [
           multipleCoordinates
           footer
         />
-        <div className="slds-backdrop slds-backdrop_open" />
+        <div className="slds-backdrop slds-backdrop_open" role="presentation" />
       </React.Fragment>
     )
   }

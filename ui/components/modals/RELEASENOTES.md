@@ -3,6 +3,70 @@
 # Modals Release Notes
 
 <!-- ## [Unreleased] -->
+
+## 2.23.2
+
+### Changed
+
+- Fixed token notation in header padding-right property
+
+## 2.22.0
+
+### Changed
+
+- Optimized full size option and refactored to use CSS grid.
+- Updated full size variant to trigger at the `$mq-small` breakpoint to prevent larger devices from receiving the variant.
+
+## 2.21.0
+
+### Fixed
+
+- Fixed `aria-labelledby` to meet accessibility requirements specifically for screen readers.
+
+## 2.21.0
+
+### Changed
+
+- Added full size option for modal. This will allow the modal to reach full screen for mobile screen size and devices. When screen is bigger than mobile screen width (from 768px), full size modal will take on large size modal behaviour.
+- Changed close button to meet accessibility requirement when in full size and in mobile width.
+
+## 2.19.0
+
+### Changed
+
+- Added tabindex to Footless example for programmatic focus use case.
+
+## 2.18.0
+
+### Changed
+
+- Added `slds-modal__content_footless` class to example for clarity.
+- Added clarifying notes around modal focus and header for accessibility, and modified Footless example to show tabindex.
+
+## 2.17.0
+
+### Added
+
+- Added `slds` as the default namespace with `sds` fallbacks for Styling Hooks.
+- Added CSS Custom Property reassignments for variants and states.
+- Added clarifying notes around modal focus for accessibility.
+- Added `.slds-modal__content_headless` and `slds-modal__content_footless` classes for styling modal content.
+
+### Changed
+
+- Changed `header` and `footer` to generic `div` tags for better accessibility semantics.
+- Changed assistive text for close buttons in modals, and added notes to accessibility documentation.
+- Changed default header level from `h2` to `h1` for semantics and added more description around using headers in the Accessibility section.
+- Removed redundant `title` attribute from modal close button.
+- Updated use of `aria-describedby` attribute for modal content, and clarified in accessibility documentation section.
+- Added the `role="presentation"` attribute to the modal backdrop.
+- Moved `slds-modal__close` out of the modal header container and adjusted styles and annotations accordingly.
+- Headless modal variant no longer requires `slds-modal__header` in the markup.
+
+### Deprecated
+
+- Deprecated older styles for previous markup of the `slds-modal__close` button.
+
 ## 2.14.0
 
 ### Added

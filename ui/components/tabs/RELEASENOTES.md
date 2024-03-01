@@ -3,6 +3,31 @@
 # Tabs Release Notes
 
 <!-- ## [Unreleased] -->
+
+## 2.23.0
+
+## Added
+
+- Inbuilt Header introduced for tabs. The header scales as per the size modifiers.
+
+## 2.21.0
+
+### Added
+
+- Added `role="presentation"` for overflow tab item.
+
+## 2.19.0
+
+### Added
+
+- Added `role="img"` to unread indicator dot to comply with accessibility usage rules for `aria-label`
+
+## 2.17.0
+
+### Added
+
+- Added `slds` as the default namespace with `sds` fallbacks for Styling Hooks.
+- Added reassignment of Styling Hooks for component states.
 ## 2.15.0
 
 ### Added

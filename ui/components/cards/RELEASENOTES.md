@@ -4,11 +4,27 @@
 
 <!-- ## [Unreleased] -->
 
+## 2.17.1
+
+### Changed
+
+- Fixed annotation for Einstein themed cards (`.slds-einstein-header__figure`)
+
+## 2.17.0
+
+### Added
+
+- Added `slds` as the default namespace with `sds` fallbacks for Styling Hooks.
+- Added reassignment of Styling Hooks for component states.
+- Added clarification about card header icon assistive text.
+- Added clarification about card heading levels for accessibility.
+
 ## 2.15.1
 
 ### Added
 
 - Added annotations for Einstein themed cards
+
 ## 2.14.0
 
 ### Added

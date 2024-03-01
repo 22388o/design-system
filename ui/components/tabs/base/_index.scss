@@ -37,9 +37,9 @@
 .slds-tabs--default__nav {
   display: flex;
   align-items: flex-start;
-  border-bottom-width: var(--sds-c-tabs-list-sizing-border, $border-width-thin);
+  border-bottom-width: var(--slds-c-tabs-list-sizing-border, var(--sds-c-tabs-list-sizing-border, $border-width-thin));
   border-bottom-style: solid;
-  border-bottom-color: var(--sds-c-tabs-list-color-border, $color-border);
+  border-bottom-color: var(--slds-c-tabs-list-color-border, var(--sds-c-tabs-list-color-border, var(--slds-g-color-border-base-4, #{$color-border})));
 }
 
 /**
@@ -49,13 +49,13 @@
  */
 .slds-tabs_default__item,
 .slds-tabs--default__item {
-  color: var(--sds-c-tabs-item-text-color, $color-text-action-label);
+  color: var(--slds-c-tabs-item-text-color, var(--sds-c-tabs-item-text-color, var(--slds-g-color-neutral-base-30, #{$color-text-action-label})));
   position: relative;
-  padding-top: var(--sds-c-tabs-item-spacing-block-start, var(--sds-c-tabs-item-spacing-block, 0));
-  padding-right: var(--sds-c-tabs-item-spacing-inline-end, var(--sds-c-tabs-item-spacing-inline, $spacing-small));
-  padding-bottom: var(--sds-c-tabs-item-spacing-block-end, var(--sds-c-tabs-item-spacing-block, 0));
-  padding-left: var(--sds-c-tabs-item-spacing-inline-start, var(--sds-c-tabs-item-spacing-inline, $spacing-small));
-  margin-bottom: calc(var(--sds-c-tabs-list-sizing-border, #{$border-width-thin}) * -1);
+  padding-top: var(--slds-c-tabs-item-spacing-block-start, var(--sds-c-tabs-item-spacing-block-start, var(--sds-c-tabs-item-spacing-block, 0)));
+  padding-right: var(--slds-c-tabs-item-spacing-inline-end, var(--sds-c-tabs-item-spacing-inline-end, var(--sds-c-tabs-item-spacing-inline, $spacing-small)));
+  padding-bottom: var(--slds-c-tabs-item-spacing-block-end, var(--sds-c-tabs-item-spacing-block-end, var(--sds-c-tabs-item-spacing-block, 0)));
+  padding-left: var(--slds-c-tabs-item-spacing-inline-start, var(--sds-c-tabs-item-spacing-inline-start, var(--sds-c-tabs-item-spacing-inline, $spacing-small)));
+  margin-bottom: calc(var(--slds-c-tabs-list-sizing-border, var(--sds-c-tabs-list-sizing-border, #{$border-width-thin})) * -1);
 
   &:after {
     display: block;
@@ -76,11 +76,13 @@
    */
   &.slds-active,
   &.slds-is-active {
-    color: var(--sds-c-tabs-item-text-color-active, $color-text-action-label-active);
+    /*! @css-var-fallback color */
+    --slds-c-tabs-item-text-color: var(--slds-c-tabs-item-text-color-active,
+      var(--sds-c-tabs-item-text-color-active, var(--slds-g-color-neutral-base-10, #{$color-text-action-label-active})));
 
     &:after {
-      background-color: var(--sds-c-tabs-item-color-border-active, $brand-primary);
-      height: calc(var(--sds-c-tabs-list-sizing-border, #{$border-width-thin}) + 2px);
+      background-color: var(--slds-c-tabs-item-color-border-active, var(--sds-c-tabs-item-color-border-active, $brand-primary));
+      height: calc(var(--slds-c-tabs-list-sizing-border, var(--sds-c-tabs-list-sizing-border, #{$border-width-thin})) + 2px);
     }
 
     .slds-tabs_default__link,
@@ -94,8 +96,8 @@
   }
 
   &:hover:after {
-    height: calc(var(--sds-c-tabs-list-sizing-border, #{$border-width-thin}) + 1px);
-    background-color: var(--sds-c-tabs-item-color-border-hover, $brand-primary-active);
+    height: calc(var(--slds-c-tabs-list-sizing-border, var(--sds-c-tabs-list-sizing-border, #{$border-width-thin})) + 1px);
+    background-color: var(--slds-c-tabs-item-color-border-hover, var(--sds-c-tabs-item-color-border-hover, $brand-primary-active));
   }
 
   /**
@@ -109,8 +111,8 @@
     outline: 0;
 
     &:after {
-      height: calc(var(--sds-c-tabs-list-sizing-border, #{$border-width-thick}) + 1px);
-      background-color: var(--sds-c-tabs-item-color-border-active, $brand-primary);
+      height: calc(var(--slds-c-tabs-list-sizing-border, var(--sds-c-tabs-list-sizing-border, #{$border-width-thick})) + 1px);
+      background-color: var(--slds-c-tabs-item-color-border-active, var(--sds-c-tabs-item-color-border-active, $brand-primary));
     }
   }
 
@@ -126,16 +128,16 @@
   * @restrict .slds-tabs_default__item, .slds-dropdown__item
   */
   &.slds-has-notification {
-    background: $color-background-notification-new;
+    background: var(--slds-g-color-neutral-base-95, #{$color-background-notification-new});
 
     &:after {
-      background-color: $color-border;
+      background-color: var(--slds-g-color-border-base-4, #{$color-border});
     }
 
     &:hover {
 
       &:after {
-        background-color: $color-brand-dark;
+        background-color: var(--slds-g-color-brand-base-30, #{$color-brand-dark});
       }
     }
 
@@ -184,8 +186,8 @@
   display: block;
   text-decoration: none;
   cursor: pointer; // needed in case links have no href & use JS
-  height: var(--sds-c-tabs-item-sizing-height, $line-height-tab);
-  line-height: var(--sds-c-tabs-item-line-height, $line-height-tab);
+  height: var(--slds-c-tabs-item-sizing-height, var(--sds-c-tabs-item-sizing-height, $line-height-tab));
+  line-height: var(--slds-c-tabs-item-line-height, var(--sds-c-tabs-item-line-height, $line-height-tab));
   color: currentColor;
   border: 0;
   text-transform: inherit; // For button menu to inherit the parents text-transform
@@ -214,14 +216,14 @@
  */
 .slds-tabs_default__overflow-button {
   display: inline-flex;
-  height: var(--sds-c-tabs-item-sizing-height, $line-height-tab);
-  line-height: var(--sds-c-tabs-item-line-height, $line-height-tab);
+  height: var(--slds-c-tabs-item-sizing-height, var(--sds-c-tabs-item-sizing-height, $line-height-tab));
+  line-height: var(--slds-c-tabs-item-line-height, var(--sds-c-tabs-item-line-height, $line-height-tab));
 
   .slds-button {
     line-height: inherit;
-    color: var(--sds-c-tabs-item-text-color, $color-text-action-label);
+    color: var(--slds-c-tabs-item-text-color, var(--sds-c-tabs-item-text-color, var(--slds-g-color-neutral-base-30, #{$color-text-action-label})));
     box-shadow: none;
-
+    --slds-c-button-color-border-active: transparent;
     &:focus {
       text-decoration: underline;
     }
@@ -231,7 +233,7 @@
   &.slds-has-success {
 
     .slds-button {
-      color: $color-gray-1;
+      color: var(--slds-g-color-neutral-base-100, #{$color-gray-1});
     }
   }
 }
@@ -244,10 +246,60 @@
 .slds-tabs_default__content,
 .slds-tabs--default__content {
   position: relative;
-  padding-top: var(--sds-c-tabs-panel-spacing-block-start, var(--sds-c-tabs-panel-spacing-block, $spacing-small));
-  padding-right: var(--sds-c-tabs-panel-spacing-inline-end, var(--sds-c-tabs-panel-spacing-inline, 0));
-  padding-bottom: var(--sds-c-tabs-panel-spacing-block-end, var(--sds-c-tabs-panel-spacing-block, $spacing-small));
-  padding-left: var(--sds-c-tabs-panel-spacing-inline-start, var(--sds-c-tabs-panel-spacing-inline, 0));
+  padding-top:
+    var(--slds-c-tabs-panel-spacing-block-start,
+    var(--sds-c-tabs-panel-spacing-block-start,
+    var(--slds-c-tabs-panel-spacing-block,
+    var(--sds-c-tabs-panel-spacing-block, $spacing-small))));
+  padding-right:
+    var(--slds-c-tabs-panel-spacing-inline-end,
+    var(--sds-c-tabs-panel-spacing-inline-end,
+    var(--slds-c-tabs-panel-spacing-inline,
+    var(--sds-c-tabs-panel-spacing-inline, 0))));
+  padding-bottom:
+    var(--slds-c-tabs-panel-spacing-block-end,
+    var(--sds-c-tabs-panel-spacing-block-end,
+    var(--slds-c-tabs-panel-spacing-block,
+    var(--sds-c-tabs-panel-spacing-block, $spacing-small))));
+  padding-left:
+    var(--slds-c-tabs-panel-spacing-inline-start,
+    var(--sds-c-tabs-panel-spacing-inline-start,
+    var(--slds-c-tabs-panel-spacing-inline,
+    var(--sds-c-tabs-panel-spacing-inline, 0))));
+}
+
+/**
+ * @summary Applies bold font weight to header
+ * @selector .slds-tabs_default__header
+ * @restrict .slds-tabs_default div
+  */
+.slds-tabs_default {
+
+  .slds-tabs_default__header {
+    font-weight: bold;
+  }
+}
+
+/**
+ * @name default
+ * @summary Default sized tabs
+ * @selector .slds-tabs_default
+ * @modifier
+ * @group size
+ */
+ .slds-tabs_default {
+
+  .slds-tabs_default__header:not(.slds-assistive-text) {
+    font-size: $var-font-size-3;
+
+    + .slds-tabs_default__nav .slds-tabs_default__item {
+      font-size: $var-font-size-2;
+    }
+  }
+
+  .slds-tabs_default__item {
+    font-size: $var-font-size-3;
+  }
 }
 
 /**
@@ -258,7 +310,15 @@
  * @modifier
  * @group size
  */
-.slds-tabs_medium {
+.slds-tabs_default.slds-tabs_medium {
+
+  .slds-tabs_default__header {
+    font-size: $var-font-size-5;
+
+    + .slds-tabs_default__nav .slds-tabs_default__item {
+      font-size: $var-font-size-4;
+    }
+  }
 
   .slds-tabs_default__item {
     font-size: $var-font-size-5;
@@ -273,7 +333,15 @@
  * @modifier
  * @group size
  */
-.slds-tabs_large {
+ .slds-tabs_default.slds-tabs_large {
+
+  .slds-tabs_default__header {
+    font-size: $var-font-size-7;
+
+    + .slds-tabs_default__nav .slds-tabs_default__item {
+      font-size: $var-font-size-6;
+    }
+  }
 
   .slds-tabs_default__item {
     font-size: $var-font-size-7;

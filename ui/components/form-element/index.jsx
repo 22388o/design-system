@@ -83,7 +83,8 @@ export const FormElementLabel = props => {
     hasHiddenLabel,
     labelId,
     labelClassName,
-    inputId
+    inputId,
+    showRequiredIndicator
   } = props;
 
   return (
@@ -96,11 +97,12 @@ export const FormElementLabel = props => {
       htmlFor={inputId}
       id={labelId}
     >
-      {isRequired && (
-        <abbr className="slds-required" title="required">
-          *{' '}
-        </abbr>
-      )}
+      {(isRequired && showRequiredIndicator) &&
+        (
+          <abbr className="slds-required" title="required">
+            *{' '}
+          </abbr>
+        )}
       {labelContent}
     </label>
   );
@@ -112,19 +114,25 @@ FormElementLabel.propTypes = {
   labelContent: PropTypes.node,
   labelClassName: PropTypes.string,
   hasHiddenLabel: PropTypes.bool,
-  isRequired: PropTypes.bool
+  isRequired: PropTypes.bool,
+  showRequiredIndicator: PropTypes.bool
+};
+
+FormElementLabel.defaultProps = {
+  showRequiredIndicator: true
 };
 
 export const FormElementSpanFauxLabel = props => {
-  const { isRequired, children, labelId } = props;
+  const { isRequired, children, labelId, showRequiredIndicator } = props;
 
   return (
     <span id={labelId} className="slds-form-element__label">
-      {isRequired && (
-        <abbr className="slds-required" title="required">
-          *{' '}
-        </abbr>
-      )}
+      {(isRequired && showRequiredIndicator) &&
+        (
+          <abbr className="slds-required" title="required">
+            *{' '}
+          </abbr>
+        )}
       {children}
     </span>
   );
@@ -136,8 +144,12 @@ FormElementSpanFauxLabel.propTypes = {
   labelId: PropTypes.string
 };
 
+FormElementSpanFauxLabel.defaultProps = {
+  showRequiredIndicator: true
+};
+
 export const FormElementTooltip = props => {
-  const { showTooltip } = props;
+  const { showTooltip,fieldLevelMessage } = props;
 
   return (
     <div className="slds-form-element__icon">
@@ -154,10 +166,11 @@ export const FormElementTooltip = props => {
             position: 'absolute',
             top: '-45px',
             left: '-15px',
-            width: '170px'
+            width: fieldLevelMessage ? '220px':'170px'
           }}
         >
-          Some helpful information.
+          {fieldLevelMessage  || "Some helpful information."}
+
         </Tooltip>
       )}
     </div>
@@ -165,7 +178,8 @@ export const FormElementTooltip = props => {
 };
 
 FormElementTooltip.propTypes = {
-  showTooltip: PropTypes.bool
+  showTooltip: PropTypes.bool,
+  fieldLevelMessage: PropTypes.string
 };
 
 export const FormElementHelpMessage = props => {
@@ -298,6 +312,7 @@ Legend.propTypes = {
  * @prop {string}  formElementClassName - Classnames to be added to the overall Form Element wrapper
  * @prop {string}  formControlClassName - Classnames to be added to the Form Element Control
  * @prop {boolean} isRequired - If true, required asterisk is added to element
+ * @prop {boolean} isDisabled - If true, element receives disabled attributes
  * @prop {string}  labelId - ID of the label
  * @prop {string}  labelClassName - Classnames to be added to the Form Element Label
  * @prop {object}  labelContent - Content of the label, can be a simple string or full object
@@ -317,6 +332,7 @@ export const FormElement = props => {
     formElementClassName,
     formControlClassName,
     isRequired,
+    isDisabled,
     isEditable,
     isViewMode,
     isStacked,
@@ -338,9 +354,11 @@ export const FormElement = props => {
     hasTooltip,
     showTooltip,
     inlineMessage,
+    fieldLevelMessage,
     column,
     role,
     dropdown,
+    showRequiredIndicator,
     children,
     ...rest
   } = props;
@@ -391,9 +409,10 @@ export const FormElement = props => {
             labelId={labelId}
             labelClassName={labelClassName}
             inputId={inputId}
+            showRequiredIndicator={showRequiredIndicator}
           />
         ))}
-      {hasTooltip && <FormElementTooltip showTooltip={showTooltip} />}
+      {hasTooltip && <FormElementTooltip showTooltip={showTooltip} {...(fieldLevelMessage && { fieldLevelMessage })}/>}
       <FormElementControl
         className={classNames(inputIconPositionClasses, formControlClassName)}
       >
@@ -421,6 +440,7 @@ FormElement.propTypes = {
   errorId: PropTypes.string,
   labelContent: PropTypes.node,
   isRequired: PropTypes.bool,
+  isDisabled: PropTypes.bool,
   isEditable: PropTypes.bool,
   isEditing: PropTypes.bool,
   isEdited: PropTypes.bool,
@@ -438,6 +458,7 @@ FormElement.propTypes = {
   inlineMessage: PropTypes.string,
   formElementClassName: PropTypes.string,
   formControlClassName: PropTypes.string,
+  fieldLevelMessage: PropTypes.string,
   column: PropTypes.number
 };
 

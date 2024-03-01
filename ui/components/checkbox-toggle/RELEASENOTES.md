@@ -3,6 +3,23 @@
 # Checkbox Toggle Release Notes
 
 <!-- ## [Unreleased] -->
+## 2.22.0
+
+### Fixed
+- Fixed `NVDA` checkbox toggle is announced twice removed aria-live="assertive"
+## 2.21.5
+
+### Changed
+- Updated disabled checkbox toggle button color.
+
+## 2.17.0
+
+### Added
+- Added `slds` as the default namespace with `sds` fallbacks for Styling Hooks.
+- Added reassignment of Styling Hooks for component states.
+
+### Fixed
+- Fixed spacing between checkbox toggle label and input on mobile.
 
 ## 2.14.0
 

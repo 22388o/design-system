@@ -29,14 +29,20 @@ import { UtilityIcon } from '../../icons/base/example';
 // Export
 /// ///////////////////////////////////////////
 
-export default (
-  <TreeContainer>
-    <TreeHeader id="treeheading">Tree Group Header</TreeHeader>
-    <TreeList headerId="treeheading">
-      <DefaultTree />
-    </TreeList>
-  </TreeContainer>
-);
+export default [
+  {
+    id: 'default',
+    label: 'Default',
+    element: (
+      <TreeContainer>
+        <TreeHeader id="treeheading">Tree Group Header</TreeHeader>
+        <TreeList headerId="treeheading">
+          <DefaultTree />
+        </TreeList>
+      </TreeContainer>
+    )
+  }
+];
 
 export let states = [
   {
@@ -269,7 +275,7 @@ export const examples = [
                 <TreeListItem
                   ariaLevel={2}
                   itemLabel="lightning-toggle"
-                  metaTextLabel="vaiant a checkbox button"
+                  metaTextLabel="variant a checkbox button"
                 >
                   <TreeItem
                     itemLabel="lightning-toggle"

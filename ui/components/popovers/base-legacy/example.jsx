@@ -72,7 +72,13 @@ export let Popover = props => {
       ) : (
         props.header
       )}
-      <div className={computedBodyClassnames} id={bodyUniqueId}>
+      <div className={computedBodyClassnames}
+        id={bodyUniqueId}
+        {...props.size === "small" && {
+          tabindex: "0",
+          role: "region",
+        }}
+      >
         {props.children}
       </div>
       {props.footer ? (
@@ -164,7 +170,7 @@ export let examples = [
       <Popover
         className="slds-nubbin_left"
         closeButton
-        headerTitle="Header Title"
+        headerTitle="Header title"
       >
         <p>
           Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
@@ -200,7 +206,7 @@ export let examples = [
         className="slds-nubbin_left"
         closeButton
         footer={<p>Footer Item</p>}
-        headerTitle="Header Title"
+        headerTitle="Header title"
         size="small"
         title="Dialog Title"
       >

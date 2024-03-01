@@ -13,6 +13,7 @@ import Input from '../../input/';
 ----------------------------------------------------------------------------- */
 
 const dateInputId = 'date-input-id';
+const demoStyles = 'height: 25rem;';
 
 /* -----------------------------------------------------------------------------
     Private
@@ -68,9 +69,9 @@ let DatepickerHeader = props => (
         Pick a Year
       </label>
       <Select id={`${props.idPrefix}_select`}>
-        <option>2020</option>
         <option>2021</option>
         <option>2022</option>
+        <option>2023</option>
       </Select>
     </div>
   </div>
@@ -244,7 +245,7 @@ export let DatePicker = props => (
           <Day
             aria-selected={
               props.dateSelected &&
-              (props.dateRange === 'week-4' || props.dateRange === 'week-4-5')
+                (props.dateRange === 'week-4' || props.dateRange === 'week-4-5')
                 ? 'true'
                 : 'false'
             }
@@ -264,7 +265,7 @@ export let DatePicker = props => (
           <Day
             aria-selected={
               props.dateSelected !== 'single' &&
-              (props.dateRange === 'week-4' || props.dateRange === 'week-4-5')
+                (props.dateRange === 'week-4' || props.dateRange === 'week-4-5')
                 ? 'true'
                 : 'false'
             }
@@ -283,13 +284,13 @@ export let DatePicker = props => (
           <Day
             aria-selected={
               props.dateSelected !== 'single' &&
-              (props.dateRange === 'week-4' || props.dateRange === 'week-4-5')
+                (props.dateRange === 'week-4' || props.dateRange === 'week-4-5')
                 ? 'true'
                 : 'false'
             }
             className={
               props.dateSelected !== 'single' &&
-              (props.dateRange === 'week-4' || props.dateRange === 'week-4-5')
+                (props.dateRange === 'week-4' || props.dateRange === 'week-4-5')
                 ? 'slds-is-selected slds-is-selected-multi'
                 : null
             }
@@ -300,13 +301,13 @@ export let DatePicker = props => (
           <Day
             aria-selected={
               props.dateSelected !== 'single' &&
-              (props.dateRange === 'week-4' || props.dateRange === 'week-4-5')
+                (props.dateRange === 'week-4' || props.dateRange === 'week-4-5')
                 ? 'true'
                 : 'false'
             }
             className={
               props.dateSelected !== 'single' &&
-              (props.dateRange === 'week-4' || props.dateRange === 'week-4-5')
+                (props.dateRange === 'week-4' || props.dateRange === 'week-4-5')
                 ? 'slds-is-selected slds-is-selected-multi'
                 : null
             }
@@ -324,7 +325,7 @@ export let DatePicker = props => (
           <Day
             aria-selected={
               props.dateSelected &&
-              (props.dateRange === 'week-5' || props.dateRange === 'week-4-5')
+                (props.dateRange === 'week-5' || props.dateRange === 'week-4-5')
                 ? 'true'
                 : 'false'
             }
@@ -342,13 +343,13 @@ export let DatePicker = props => (
           <Day
             aria-selected={
               props.dateSelected !== 'single' &&
-              (props.dateRange === 'week-5' || props.dateRange === 'week-4-5')
+                (props.dateRange === 'week-5' || props.dateRange === 'week-4-5')
                 ? 'true'
                 : 'false'
             }
             className={
               props.dateSelected !== 'single' &&
-              (props.dateRange === 'week-5' || props.dateRange === 'week-4-5')
+                (props.dateRange === 'week-5' || props.dateRange === 'week-4-5')
                 ? 'slds-is-selected slds-is-selected-multi'
                 : null
             }
@@ -359,13 +360,13 @@ export let DatePicker = props => (
           <Day
             aria-selected={
               props.dateSelected !== 'single' &&
-              (props.dateRange === 'week-5' || props.dateRange === 'week-4-5')
+                (props.dateRange === 'week-5' || props.dateRange === 'week-4-5')
                 ? 'true'
                 : 'false'
             }
             className={
               props.dateSelected !== 'single' &&
-              (props.dateRange === 'week-5' || props.dateRange === 'week-4-5')
+                (props.dateRange === 'week-5' || props.dateRange === 'week-4-5')
                 ? 'slds-is-selected slds-is-selected-multi'
                 : null
             }
@@ -454,27 +455,36 @@ export let DatePickerElement = props => (
     hasRightIcon
     hasError={props.hasError}
     isRequired={props.isRequired}
+    isDisabled={props.isDisabled}
+    hasTooltip={props.hasTooltip}
+    showTooltip={props.showTooltip}
+    fieldLevelMessage={props.fieldLevelMessage}
     dropdown={
-      <DatePicker
-        idPrefix={props.idPrefix}
-        todayActive={props.todayActive}
-        todayActiveInRange={props.todayActiveInRange}
-        dateSelected={props.dateSelected}
-        dateRange={props.dateRange}
-        dateRangeMulti={props.dateRangeMulti}
-      />
+      (!props.isDisabled &&
+        <DatePicker
+          idPrefix={props.idPrefix}
+          todayActive={props.todayActive}
+          todayActiveInRange={props.todayActiveInRange}
+          dateSelected={props.dateSelected}
+          dateRange={props.dateRange}
+          dateRangeMulti={props.dateRangeMulti}
+        />
+      )
     }
   >
     <Input
       id={props.dateInputId}
       placeholder=" "
       defaultValue={props.defaultValue}
+      required={props.isRequired}
+      disabled={props.isDisabled}
     />
     <ButtonIcon
       className="slds-input__icon slds-input__icon_right"
       symbol="event"
       assistiveText="Select a date"
       title="Select a date"
+      disabled={props.isDisabled}
     />
   </FormElement>
 );
@@ -483,24 +493,28 @@ export let DatePickerElement = props => (
     Exports
 ----------------------------------------------------------------------------- */
 
-export const Context = props => (
-  <div style={{ height: '25rem' }}>{props.children}</div>
-);
-
-export default (
-  <DatePickerElement
-    idPrefix="defaultPicker"
-    labelContent="Date"
-    dateInputId={dateInputId + '-default'}
-    isOpen
-    todayActive
-  />
-);
+export default [
+  {
+    id: 'default',
+    label: 'Base – default',
+    demoStyles: demoStyles,
+    element: (
+      <DatePickerElement
+        idPrefix="defaultPicker"
+        labelContent="Date"
+        dateInputId={dateInputId + '-default'}
+        isOpen
+        todayActive
+      />
+    )
+  }
+];
 
 export let states = [
   {
     id: 'datepicker-day-selected',
     label: 'Date selected',
+    demoStyles: demoStyles,
     element: (
       <DatePickerElement
         idPrefix="pickerDaySelected"
@@ -510,13 +524,14 @@ export let states = [
         todayActive
         dateSelected="single"
         dateRange="week-4"
-        defaultValue="06/24/2020"
+        defaultValue="06/24/2021"
       />
     )
   },
   {
     id: 'datepicker-with-error',
     label: 'Date Picker has Error',
+    demoStyles: demoStyles,
     element: (
       <DatePickerElement
         idPrefix="pickerWithError"
@@ -531,6 +546,7 @@ export let states = [
   {
     id: 'datepicker-required',
     label: 'Date Picker - required',
+    demoStyles: demoStyles,
     element: (
       <DatePickerElement
         idPrefix="pickerRequired"
@@ -545,6 +561,7 @@ export let states = [
   {
     id: 'datepicker-required-with-error',
     label: 'Date Picker - required with error',
+    demoStyles: demoStyles,
     element: (
       <DatePickerElement
         idPrefix="pickerRequired"
@@ -556,6 +573,39 @@ export let states = [
         hasError
       />
     )
+  },
+  {
+    id: 'datepicker-with-tooltip',
+    label: 'Date Picker - With tooltip',
+    demoStyles: demoStyles,
+    element: (
+      <DatePickerElement
+        idPrefix="pickerRequired"
+        labelContent="Date"
+        dateInputId={dateInputId + '-required'}
+        todayActive
+        isRequired
+        isOpen
+        defaultValue="Jan 1 2023"
+        fieldLevelMessage="Format: mmm d yyyy | ex: Jan 1 2023"
+        hasTooltip
+        showTooltip
+      />
+    )
+  },
+  {
+    id: 'datepicker-disabled',
+    label: 'Datepicker - disabled',
+    demoStyles: 'height: 8rem;',
+    storybookStyles: true,
+    element: (
+      <DatePickerElement
+        idPrefix="pickerDisabled"
+        labelContent="Date"
+        dateInputId={dateInputId + '-table'}
+        isDisabled
+      />
+    )
   }
 ];
 
@@ -563,6 +613,7 @@ export let examples = [
   {
     id: 'mobile',
     label: 'Mobile',
+    demoStyles: demoStyles,
     element: (
       <FormElement labelContent="Date" inputId={dateInputId + '-mobile'}>
         <Input id={dateInputId + '-mobile'} type="datetime-local" />
@@ -572,6 +623,7 @@ export let examples = [
   {
     id: 'datepicker-in-datatable',
     label: 'Datepicker in a Data Table',
+    demoStyles: demoStyles,
     element: (
       <SimpleTable>
         <DatePickerElement
@@ -587,6 +639,7 @@ export let examples = [
   {
     id: 'datepicker-in-datatable_date-selected',
     label: 'Datepicker with date selected in a Data Table',
+    demoStyles: demoStyles,
     element: (
       <SimpleTable>
         <DatePickerElement
@@ -597,7 +650,7 @@ export let examples = [
           todayActive
           dateSelected="single"
           dateRange="week-4"
-          defaultValue="06/24/2020"
+          defaultValue="06/24/2021"
         />
       </SimpleTable>
     )
@@ -605,6 +658,7 @@ export let examples = [
   {
     id: 'datepicker-in-datatable_with-error',
     label: 'Datepicker with an error in a Data Table',
+    demoStyles: demoStyles,
     element: (
       <SimpleTable>
         <DatePickerElement

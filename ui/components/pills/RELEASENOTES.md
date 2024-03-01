@@ -3,6 +3,20 @@
 # Pills Release Notes
 
 <!-- ## [Unreleased] -->
+## 2.23.1
+
+## Changed
+
+- Added Button element for `Pill` remove feature. Now remove button is focusable and can be clickable.
+- Removed non applicable ARIA attributes after markup updates.
+
+## 2.17.0
+
+### Added
+
+- Added `slds` as the default namespace with `sds` fallbacks for Styling Hooks.
+- Added reassignment of Styling Hooks for component states.
+
 ## 2.14.0
 
 ### Changed

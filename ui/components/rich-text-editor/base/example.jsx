@@ -220,18 +220,24 @@ let TextInputExample = props => (
 // Export
 /// ////////////////////////////////////////
 
-export default (
-  <Demo>
-    <RichTextEditor>
-      <RteToolbar>
-        <RteFormatText tabIndexSetting="0" />
-        <RteFormatBody />
-        <RteClearFormatting />
-      </RteToolbar>
-      <RteTextarea placeholder="Compose text..." />
-    </RichTextEditor>
-  </Demo>
-);
+export default [
+  {
+    id: 'default',
+    label: 'Default',
+    element: (
+      <Demo>
+        <RichTextEditor>
+          <RteToolbar>
+            <RteFormatText tabIndexSetting="0" />
+            <RteFormatBody />
+            <RteClearFormatting />
+          </RteToolbar>
+          <RteTextarea placeholder="Compose text..." />
+        </RichTextEditor>
+      </Demo>
+    )
+  }
+];
 
 export let states = [
   {
@@ -295,7 +301,7 @@ export let states = [
     label: 'Disabled',
     element: (
       <Demo>
-        <RichTextEditor>
+        <RichTextEditor disabledLabel="disabled">
           <RteToolbar disabledButtons disabledLabel="disabled">
             <RteFormatText tabIndexSetting="0" disabledButtons />
             <RteFormatBody disabledButtons />

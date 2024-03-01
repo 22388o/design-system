@@ -2,13 +2,24 @@
 
 # Progress Bar Release Notes
 
+## 2.21.0
+
+### Added
+
+- Added id to aria-labelledby to meet accessibility requirements.
+
 <!-- ## [Unreleased] -->
+## 2.19.0
+
+### Added
+
+- Added example for Success under States
+
 ## 2.16.0
 
 ### Added
 
 - Added `aria-label` attribute to the div with role of `progressbar` to meet accessibility requirements.
-
 
 ## 2.7.0
 

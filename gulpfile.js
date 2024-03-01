@@ -12,6 +12,7 @@ import * as accessibility from './scripts/gulp/accessibility';
 import * as dist from './scripts/gulp/dist';
 import * as examples from './scripts/gulp/generate/examples';
 import * as tokens from './scripts/gulp/generate/tokens';
+import * as stylingHooks from './scripts/gulp/generate/styling-hooks';
 import * as lint from './scripts/gulp/lint';
 import * as styles from './scripts/gulp/styles';
 import * as sanitized from './scripts/gulp/generate/sanitized';
@@ -93,7 +94,10 @@ gulp.task('generate:tokens:components:imports', tokens.componentsImports);
 // Generate package specific tokens
 gulp.task('generate:tokens:package', tokens.packages);
 
-// Generate all tokens - [Primitive, Component Specific, Package]
+// Generate SLDS Styling Hooks
+gulp.task('generate:stylingHooks', stylingHooks.createStylingHooks);
+
+// Generate all tokens - [Primitive, Component Specific, Package, Styling Hooks]
 gulp.task(
   'generate:tokens:all',
   gulp.series(
@@ -102,20 +106,30 @@ gulp.task(
     ),
     withName('generate:tokens:primitive')(tokens.copyDesignPrimitiveTokens),
     withName('generate:tokens:components:imports')(tokens.componentsImports),
-    withName('generate:tokens:package')(tokens.packages)
+    withName('generate:tokens:package')(tokens.packages),
+    withName('generate:stylingHooks')(stylingHooks.createStylingHooks)
   )
 );
 
 gulp.task('generate:auraTokensMap', done => {
-  dist.writeAuraTokensMap().fork(e => done(e), () => done());
+  dist.writeAuraTokensMap().fork(
+    e => done(e),
+    () => done()
+  );
 });
 
 gulp.task('generate:tokenComponentMap', done => {
-  dist.writeTokenComponentMap().fork(e => done(e), () => done());
+  dist.writeTokenComponentMap().fork(
+    e => done(e),
+    () => done()
+  );
 });
 
 gulp.task('generate:utilityDeclarationsMap', done => {
-  dist.writeUtilityDeclarationsMap().fork(e => done(e), () => done());
+  dist.writeUtilityDeclarationsMap().fork(
+    e => done(e),
+    () => done()
+  );
 });
 
 /*
@@ -145,6 +159,7 @@ gulp.task('lint:javascript:test', lint.javascriptTest);
 gulp.task('lint:html', lint.html);
 gulp.task('lint:markup', lint.markup);
 gulp.task('lint:tokens:yml', lint.tokensYml);
+gulp.task('lint:icons:yml', lint.iconsYml);
 gulp.task('lint:tokens:components', lint.tokensComponents);
 gulp.task('lint:tokens:aliases', lint.tokensAliases);
 
@@ -154,6 +169,13 @@ gulp.task(
     withName('lint:tokens:yml')(lint.tokensYml),
     withName('lint:tokens:components')(lint.tokensComponents),
     withName('lint:tokens:aliases')(lint.tokensAliases)
+  )
+);
+
+gulp.task(
+  'lint:icons',
+  gulp.parallel(
+    withName('lint:icons:yml')(lint.iconsYml)
   )
 );
 
@@ -182,7 +204,8 @@ gulp.task(
     withName('lint:spaces')(lint.spaces),
     withName('lint:javascript')(lint.javascript),
     withName('lint:javascript:test')(lint.javascriptTest),
-    'lint:tokens'
+    'lint:tokens',
+    'lint:icons'
   )
 );
 
@@ -342,6 +365,7 @@ gulp.task('dist:versionBlock', dist.versionBlock);
 gulp.task('dist:versionInline', dist.versionInline);
 gulp.task('dist:buildInfo', dist.buildInfo);
 gulp.task('dist:packageJson', dist.packageJson);
+gulp.task('dist:searchConfig', dist.searchConfig);
 
 gulp.task('dist:minifyCss', dist.minifyCss);
 
@@ -384,7 +408,8 @@ gulp.task(
       'dist:versionBlock',
       'dist:versionInline',
       'dist:buildInfo',
-      'dist:packageJson'
+      'dist:packageJson',
+      'dist:searchConfig'
     ),
     'dist:minifyCss',
     'dist:writeUI',
@@ -430,7 +455,8 @@ gulp.task(
       withName('dist:versionBlock')(dist.versionBlock),
       withName('dist:versionInline')(dist.versionInline),
       withName('dist:buildInfo')(dist.buildInfo),
-      withName('dist:packageJson')(dist.packageJson)
+      withName('dist:packageJson')(dist.packageJson),
+      withName('dist:searchConfig')(dist.searchConfig)
     ),
     withName('dist:minifyCss')(dist.minifyCss),
     withName('dist:writeTokenComponentMap')(done =>

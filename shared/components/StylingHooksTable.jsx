@@ -8,11 +8,11 @@ import Copy from '../../shared/components/Copy';
 import { propTypes } from '../../scripts/var-metadata';
 
 const getPropTypeData = (name, varName) => {
-  const trimmedVar = varName.replace(`--sds-c-${name}-`, '');
+  const trimmedVar = varName.replace(`--slds-c-${name}-`, '');
   let propType = null;
   let valueTypes = null;
 
-  Object.keys(propTypes).forEach(prop => {
+  Object.keys(propTypes).forEach((prop) => {
     if (trimmedVar.match(prop)) {
       propType = propTypes[prop].type;
       valueTypes = propTypes[prop].valueTypes;
@@ -21,11 +21,11 @@ const getPropTypeData = (name, varName) => {
 
   return {
     propType,
-    valueTypes
+    valueTypes,
   };
 };
 
-const formatType = type => {
+const formatType = (type) => {
   let formattedType = type.toLowerCase();
   if (formattedType === 'color') {
     formattedType += '_value'; // MDN adds _value to color data type page, this discrepancy is unique
@@ -46,7 +46,7 @@ class StylingHooksTable extends Component {
     }
 
     const categories = Object.keys(vars)
-      .map(varName => {
+      .map((varName) => {
         return getPropTypeData(name, varName).propType;
       })
       .filter((value, i, self) => self.indexOf(value) === i)
@@ -78,15 +78,27 @@ class StylingHooksTable extends Component {
               {categories.map((category, i) => {
                 const categoryVars = Object.keys(vars)
                   .filter(
-                    varName =>
+                    (varName) =>
                       getPropTypeData(name, varName).propType === category
                   )
-                  .map(varName => {
+                  .map((varName) => {
                     return {
                       name: varName,
                       value: vars[varName].fallbackValue,
-                      types: getPropTypeData(name, varName).valueTypes || []
+                      types: getPropTypeData(name, varName).valueTypes || [],
                     };
+                  })
+                  .sort((a, b) => {
+                    const nameA = a.name;
+                    const nameB = b.name;
+
+                    if (nameA < nameB) {
+                      return -1; // nameA comes first
+                    }
+                    if (nameA > nameB) {
+                      return 1; // nameB comes first
+                    }
+                    return 0; // names must be equal
                   });
 
                 return (
@@ -97,10 +109,10 @@ class StylingHooksTable extends Component {
                         className={classNames({
                           'hooks-table__section': ii === 0,
                           'hooks-table__section_end':
-                            ii === categoryVars.length - 1
+                            ii === categoryVars.length - 1,
                         })}
                       >
-                        {ii === 0 ? (
+                        {ii === 0 && (
                           <th
                             className="hooks-table__col-category"
                             scope="rowgroup"
@@ -108,7 +120,7 @@ class StylingHooksTable extends Component {
                           >
                             {category}
                           </th>
-                        ) : null}
+                        )}
                         <td>
                           <div className="slds-grid">
                             <Copy
@@ -124,15 +136,19 @@ class StylingHooksTable extends Component {
                           </div>
                         </td>
                         <td>
-                          {varData.types.map((type, x) => {
+                          {varData.types.map((type, x, arr) => {
                             const formattedType = formatType(type);
                             return (
-                              <a
-                                key={`${category}-${i}-${ii}-${x}`}
-                                href={`https://developer.mozilla.org/en-US/docs/Web/CSS/${formattedType}`}
-                              >
-                                {type}
-                              </a>
+                              <>
+                                <a
+                                  key={`${category}-${i}-${ii}-${x}`}
+                                  href={`https://developer.mozilla.org/en-US/docs/Web/CSS/${formattedType}`}
+                                >
+                                  {type}
+                                </a>
+                                {/* Proper comma separation when there is more than 1 valueType */}
+                                {arr.length > 1 && x <= 0 && ', '}
+                              </>
                             );
                           })}
                         </td>

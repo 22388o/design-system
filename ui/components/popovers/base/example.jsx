@@ -63,7 +63,13 @@ export let Popover = props => {
         />
       ) : null}
 
-      <div className={computedBodyClassnames} id={bodyUniqueId}>
+      <div className={computedBodyClassnames}
+        id={bodyUniqueId}
+        {...props.size === "small" && {
+          tabindex: "0",
+          role: "region",
+        }}
+      >
         {props.badgeTitle ? (
           <div className="slds-popover__meta">
             {props.badgeVariant && props.badgeVariant === 'light' ? (
@@ -186,7 +192,7 @@ export let examples = [
       <Popover
         className="slds-nubbin_left"
         closeButton
-        headerTitle="Header Title"
+        headerTitle="Header title"
       >
         <p>
           Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
@@ -202,7 +208,7 @@ export let examples = [
       <Popover
         className="slds-nubbin_left"
         closeButton
-        headerTitle="Header Title"
+        headerTitle="Header title"
         iconName="favorite"
         iconAssistiveText="Assistive text here"
       >
@@ -243,7 +249,7 @@ export let examples = [
       <Popover
         className="slds-nubbin_left"
         closeButton
-        headerTitle="Header Title"
+        headerTitle="Header title"
         iconName="favorite"
         iconAssistiveText="Assistive text here"
         footer={
@@ -268,7 +274,7 @@ export let examples = [
       <Popover
         className="slds-nubbin_left slds-popover_large"
         closeButton
-        headerTitle="Header Title"
+        headerTitle="Header title"
         badgeTitle="Admin Notice"
       >
         <p>
@@ -285,7 +291,7 @@ export let examples = [
       <Popover
         className="slds-nubbin_left slds-popover_large"
         closeButton
-        headerTitle="Header Title"
+        headerTitle="Header title"
         badgeTitle="Admin Notice"
         iconName="favorite"
         iconAssistiveText="Assistive text here"
@@ -305,7 +311,7 @@ export let examples = [
         className="slds-nubbin_left"
         closeButton
         footer={<p>Footer Item</p>}
-        headerTitle="Header Title"
+        headerTitle="Header title"
         size="small"
         title="Dialog Title"
       >
@@ -341,7 +347,7 @@ export let examples = [
       <Popover
         className="slds-nubbin_left slds-popover_small"
         closeButton
-        headerTitle="Header Title"
+        headerTitle="Header title"
       >
         <p>
           Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
@@ -357,7 +363,7 @@ export let examples = [
       <Popover
         className="slds-nubbin_left slds-popover_medium"
         closeButton
-        headerTitle="Header Title"
+        headerTitle="Header title"
       >
         <p>
           Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
@@ -373,7 +379,7 @@ export let examples = [
       <Popover
         className="slds-nubbin_left slds-popover_large"
         closeButton
-        headerTitle="Header Title"
+        headerTitle="Header title"
       >
         <p>
           Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
@@ -389,7 +395,7 @@ export let examples = [
       <Popover
         className="slds-nubbin_left slds-popover_full-width"
         closeButton
-        headerTitle="Header Title"
+        headerTitle="Header title"
       >
         <p>
           Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
@@ -402,7 +408,7 @@ export let examples = [
     id: 'no-close-button',
     label: 'No Close Button',
     element: (
-      <Popover className="slds-nubbin_left" headerTitle="Header Title">
+      <Popover className="slds-nubbin_left" headerTitle="Header title">
         <p>
           Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
           eiusmod tempor incididunt ut labore et dolore magna aliqua.
@@ -414,7 +420,7 @@ export let examples = [
     id: 'dark-base',
     label: 'Base [dark]',
     element: (
-      <Popover className="slds-popover_dark slds-nubbin_left" closeButton>
+      <Popover className="slds-popover_dark slds-nubbin_left" title="Popover Title" closeButton>
         <p>
           Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
           eiusmod tempor incididunt ut labore et dolore magna aliqua.
@@ -429,7 +435,7 @@ export let examples = [
       <Popover
         className="slds-popover_dark slds-nubbin_left"
         closeButton
-        headerTitle="Header Title"
+        headerTitle="Header title"
       >
         <p>
           Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
@@ -445,7 +451,7 @@ export let examples = [
       <Popover
         className="slds-popover_dark slds-nubbin_left"
         closeButton
-        headerTitle="Header Title"
+        headerTitle="Header title"
         iconName="favorite"
         iconAssistiveText="Assistive text here"
       >
@@ -486,7 +492,7 @@ export let examples = [
       <Popover
         className="slds-popover_dark slds-nubbin_left"
         closeButton
-        headerTitle="Header Title"
+        headerTitle="Header title"
         iconName="favorite"
         iconAssistiveText="Assistive text here"
         footer={
@@ -511,7 +517,7 @@ export let examples = [
       <Popover
         className="slds-popover_dark slds-nubbin_left slds-popover_large"
         closeButton
-        headerTitle="Header Title"
+        headerTitle="Header title"
         badgeTitle="Admin Notice"
         badgeVariant="light"
       >
@@ -529,7 +535,7 @@ export let examples = [
       <Popover
         className="slds-popover_dark slds-nubbin_left slds-popover_large"
         closeButton
-        headerTitle="Header Title"
+        headerTitle="Header title"
         badgeTitle="Admin Notice"
         iconName="favorite"
         iconAssistiveText="Assistive text here"

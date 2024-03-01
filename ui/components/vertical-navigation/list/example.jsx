@@ -163,7 +163,7 @@ NavVerticalSection.propTypes = {
 // Export
 /// ////////////////////////////////////////
 
-export default (
+export const ListBaseExample = () => (
   <div className="demo-only" style={{ width: '320px' }}>
     <NavVertical>
       <NavVerticalSection headerId={sectionId01} title="Reports">
@@ -181,6 +181,8 @@ export default (
     </NavVertical>
   </div>
 );
+
+export default <ListBaseExample/>;
 
 export let states = [
   {

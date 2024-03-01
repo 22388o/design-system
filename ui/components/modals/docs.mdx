@@ -1,8 +1,10 @@
 import * as Base from './base/example.jsx';
 import CodeView from '../../../shared/components/CodeView';
+import CodeBlock from '../../../shared/components/CodeBlock';
 import StylingHooksTable from '../../../shared/components/StylingHooksTable';
 import { getDisplayElementById, getDemoStylesById } from '../../shared/helpers';
 import { MobileNotice, MobileBlurb } from '../../shared/doc-text';
+import { ModalSizes, FullTaglines, FullHeadless, FullFootless } from './base/example';
 
 <div className="doc lead">
   Modals are used to display content in a layer above the app. This paradigm is
@@ -10,7 +12,7 @@ import { MobileNotice, MobileBlurb } from '../../shared/doc-text';
   types of messaging and wizards.
 </div>
 
-<CodeView exampleOnly isViewport demoStyles="height: 640px;">
+<CodeView exampleOnly isViewport demoStyles={getDemoStylesById(Base.default)}>
   {getDisplayElementById(Base.default)}
 </CodeView>
 
@@ -42,8 +44,10 @@ Modals, by definition, trap focus. This means that if a user presses Tab or Shif
 
 - Modal has `role="dialog"`
 - When the modal is open, everything behind it has HTML attribute `aria-hidden="true"`, so assistive technology won't read out the underlying page. The best way to do this is to give the modal and the page separate wrapper elements and toggle `aria-hidden="true"`/`aria-hidden="false"` on the main page's wrapper depending on whether or not the modal is open.
-- Modal contains an HTML heading
+- Modal contains an HTML heading. This is an `h1` tag by default but should update according to the surrounding DOM structure. While a semantic heading tag is preferable, if necessary applying `role=”heading”` and `aria-level` to a more generic element is acceptable.
 - Modal has an `aria-labelledby` attribute whose value is the id of the modal’s heading
+- Modal has an optional `aria-describedby` attribute whose value is the id of the modal's content. This should not be used for all modals, but in instances where the modal is being used as an analog to a javascript `confirm()` or `alert()` dialog to deliver a short prompt that can be responded to with a confirm/cancel button set (eg: [Prompt](/components/prompt/)).
+- Buttons which close the modal should have the same accessible text per [WCAG guidelines](https://www.w3.org/WAI/WCAG21/Understanding/consistent-identification.html).
 
 #### Expected keyboard interactions
 
@@ -51,6 +55,11 @@ Modals, by definition, trap focus. This means that if a user presses Tab or Shif
 - Tab key at bottom of modal cycles focus back to first focusable element at top of modal
 - Shift+Tab keys at top of modal cycle focus back to last focusable element at bottom of modal
 - Enter key submits modal’s form data, if applicable
+
+#### Focus guidelines
+
+- Focus for modals must follow the guidelines described in the [Accessibility Guidelines for Dialogs](/accessibility/guidelines/global-focus/#dialogs). Pay special attention to where focus is set when the modal opens.
+- If no interactive element exists to set focus when the modal opens, add the appropriate `tabindex` attribute to the header to allow for programmatic focus (see "Footless" example, below).
 
 ### Mobile
 
@@ -62,11 +71,11 @@ Modals, by definition, trap focus. This means that if a user presses Tab or Shif
 
 ## Base
 
-<CodeView isViewport demoStyles={getDemoStylesById(Base.examples, 'default')}>
-  {getDisplayElementById(Base.examples, 'default')}
+<CodeView isViewport demoStyles={getDemoStylesById(Base.default)}>
+  {getDisplayElementById(Base.default)}
 </CodeView>
 
-## Examples
+## Layout
 
 ### Taglines
 
@@ -95,23 +104,36 @@ Modals, by definition, trap focus. This means that if a user presses Tab or Shif
   {getDisplayElementById(Base.examples, 'directional')}
 </CodeView>
 
-### Small Modal
+## Sizes
+
+### Small
 
 <CodeView isViewport demoStyles={getDemoStylesById(Base.examples, 'small')}>
   {getDisplayElementById(Base.examples, 'small')}
 </CodeView>
 
-### Medium Modal
+### Medium
 
 <CodeView isViewport demoStyles={getDemoStylesById(Base.examples, 'medium')}>
   {getDisplayElementById(Base.examples, 'medium')}
 </CodeView>
 
-### Large Modal
+### Large
 
 <CodeView isViewport demoStyles={getDemoStylesById(Base.examples, 'large')}>
   {getDisplayElementById(Base.examples, 'large')}
 </CodeView>
+
+### Full
+
+Use the `slds-modal_full` class to give a full screen appearance in small form factors that fall within the `$mq-small` token value. Form factors outside of `$mq-small` will take on the appearance of the large modal.
+
+<CodeView frameOnly frameStyles={{ height: '640px' }} frameTitle="Example mobile styles for full example">
+  {getDisplayElementById(Base.examples, 'full')}
+</CodeView>
+<CodeBlock toggleCode={false}>
+  <ModalSizes size="full" />
+</CodeBlock>
 
 ## Styling Hooks Overview
 

@@ -1,6 +1,16 @@
 <!-- Release notes authoring guidelines: http://keepachangelog.com/ -->
 
 # Progress Indicator Release Notes
+## 2.22.1
+
+### Fixed
+
+- Matching styles for [dir=rtl] added.
+## 2.21.0
+
+### Added
+
+- Added id to aria-labelledby to meet accessibility requirements.
 
 <!-- ## [Unreleased] -->
 ## 2.16.0

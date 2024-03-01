@@ -52,4 +52,18 @@ StandardIcon.propTypes = {
 // Export
 /// ///////////////////////////////////////////
 
-export default <StandardIcon />;
+export default [
+  {
+    id: 'standard-default',
+    label: 'Standard - Default',
+    element: <StandardIcon />
+  }
+]
+
+export let examples = [
+  {
+    id: 'disabled',
+    label: 'Standard - Disabled',
+    element: <StandardIcon isDisabled />
+  }
+]

@@ -2,7 +2,28 @@
 
 # Welcome Mat Release Notes
 
+## 2.21.0
+### Fixed
+- Fixed by adding tabindex="0" and role="region" for Scrollable region must have keyboard access wcag issue
+
+## 2.19
+
+### Fixed
+
+- Fixed hardcoded base info background image path
+
 <!-- ## [Unreleased] -->
+
+## 2.17.5
+
+### Fixed
+- Reverted changes to checkbox layout introduced in 2.17.4
+
+## 2.17.4
+
+### Fixed
+- Centered checkboxes using the new Flexbox layout.
+
 ## 2.16.0
 
 ### Added

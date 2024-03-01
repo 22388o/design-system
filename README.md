@@ -27,7 +27,7 @@ Whenever you add, remove, or alter a component's css annotation metadata, you'll
 
 ### Configuring Node and NVM
 
-Node v12 is recommended for use with the Design System repository, and [NVM](http://nvm.sh/) is the recommended choice for managing multiple versions of Node on your computer.
+Node v14 is recommended for use with the Design System repository, and [NVM](http://nvm.sh/) is the recommended choice for managing multiple versions of Node on your computer.
 
 A .nvmrc file is included in this project to aid in local development. To utilize it for setting your project's node version, run `nvm use` in the root of the directory.
 Additionally, you can set up a deeper shell integration for automatically invoking the nvmrc file when you change into the project directory by
@@ -108,7 +108,16 @@ Delete temporary build and local files.
 
 ### Tests
 
-`npm test`: run all tests
+`npm test`: run all tests, except axe/a11y tests
+
+`npm run test:a11y`: run axe tests for accessibility violations
+Results are saved into `./__tests__/a11y/results`.
+
+### Release
+
+`npm release:site`: build and release the framework and site
+
+Requires heroku access to build and release the site.
 
 ## Troubleshooting
 

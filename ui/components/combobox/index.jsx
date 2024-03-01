@@ -88,8 +88,9 @@ const ComboboxInputFaux = ({
   value
 }) => {
   return (
-    <button
-      type="button"
+    <div
+      role="combobox"
+      tabindex="0"
       className={classNames(
         'slds-input_faux',
         'slds-combobox__input',
@@ -99,13 +100,13 @@ const ComboboxInputFaux = ({
       )}
       disabled={isDisabled}
       {...labelId && id && { [`aria-labelledby`]: `${labelId} ${id}` }}
-      {...{ id, role, onBlur, onFocus }}
+      {...{ id, onBlur, onFocus }}
       {...aria}
     >
       <span className="slds-truncate" id={_.uniqueId('combobox-value-id-')}>
         {children}
       </span>
-    </button>
+    </div>
   );
 };
 
@@ -149,7 +150,7 @@ const ComboboxInput = ({
 }) => {
   const hasInputIcon = leftInputIcon || rightInputIcon || showCloseButton;
   const { isOpen } = useContext(ComboboxFormContext);
-  const placeholderValue = !placeholder
+  const placeholderValue = !placeholder && placeholder !== ""
     ? autocomplete
       ? 'Search...'
       : 'Select an Option…'
@@ -211,6 +212,7 @@ const ComboboxInput = ({
           tabIndex={tabIndex}
           onFocus={e => toggleFocus(e)}
           onBlur={e => toggleFocus(e)}
+          disabled={isDisabled}
         />
       )}
       {rightInputIcon && rightInputIcon}
@@ -310,7 +312,10 @@ export default class Combobox extends Component {
       isEditing,
       column,
       tabIndex,
-      value
+      value,
+      hasTooltip,
+      showTooltip,
+      fieldLevelMessage
     } = this.props;
 
     return (
@@ -325,6 +330,9 @@ export default class Combobox extends Component {
         isHorizontal={isHorizontal}
         isStacked={isStacked}
         column={column}
+        hasTooltip={hasTooltip}
+        showTooltip={showTooltip}
+        fieldLevelMessage={fieldLevelMessage}
       >
         <ComboboxContainer
           className={containerClassName}
@@ -446,6 +454,7 @@ export class ComboboxGroup extends Component {
       id,
       inputContainerClassName,
       inputIconPosition,
+      isDisabled,
       isLoading,
       isOpen,
       label,
@@ -501,6 +510,7 @@ export class ComboboxGroup extends Component {
                 aria-activedescendant={this.props['aria-activedescendant']}
                 autoFocus={autoFocus}
                 resultsType={resultsType}
+                isDisabled={isDisabled}
               />
               {results}
             </ComboboxFormElement>

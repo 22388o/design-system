@@ -11,35 +11,35 @@
  * @variant
  */
 .slds-panel {
-  background: $color-background-alt;
+  background: var(--slds-g-color-neutral-base-100, #{$color-background-alt});
   border-radius: $border-radius-medium;
   overflow-y: auto;
-
-  /**
-   * Contains sub sections of a panel
-   *
-   * @selector .slds-panel__section
-   * @restrict .slds-panel div
-   * @required
-   */
-  &__section {
-    padding: $spacing-medium;
-  }
-
-  /**
-   * Contains form actions at the bottom of a panel
-   *
-   * @selector .slds-panel__actions
-   * @restrict .slds-panel div
-   * @required
-   */
-  &__actions {
-    padding: $spacing-small;
-  }
 
   &.slds-is-editing {
     box-shadow: $shadow-drop-down;
   }
+}
+
+/**
+  * Contains sub sections of a panel
+  *
+  * @selector .slds-panel__section
+  * @restrict .slds-panel div
+  * @required
+  */
+.slds-panel__section {
+  padding: $spacing-medium;
+}
+
+/**
+  * Contains form actions at the bottom of a panel
+  *
+  * @selector .slds-panel__actions
+  * @restrict .slds-panel div
+  * @required
+  */
+.slds-panel__actions {
+  padding: $spacing-small;
 }
 
 /**
@@ -52,7 +52,7 @@
   position: relative;
   align-items: center;
   padding: $spacing-small;
-  border-bottom: $border-width-thin solid $color-border;
+  border-bottom: $border-width-thin solid var(--slds-g-color-border-base-1, #{$color-border});
 }
 
 /**

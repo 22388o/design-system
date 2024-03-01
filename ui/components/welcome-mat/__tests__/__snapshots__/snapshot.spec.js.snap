@@ -12,29 +12,28 @@ exports[`Composed Welcome Mat Snapshots renders a deprecated welcome mat 1`] = `
   <div
     className="slds-modal__container"
   >
-    <header
-      className="slds-modal__header slds-modal__header_empty"
+    <button
+      className="slds-button slds-button_icon slds-modal__close slds-button_icon-inverse"
+      disabled={false}
+      onClick={[Function]}
     >
-      <button
-        className="slds-button slds-button_icon slds-modal__close slds-button_icon-inverse"
-        onClick={[Function]}
-        title="Close"
+      <svg
+        aria-hidden={true}
+        className="slds-button__icon slds-button__icon_large"
       >
-        <svg
-          aria-hidden={true}
-          className="slds-button__icon slds-button__icon_large"
-        >
-          <use
-            xlinkHref="/assets/icons/utility-sprite/svg/symbols.svg#close"
-          />
-        </svg>
-        <span
-          className="slds-assistive-text"
-        >
-          Close
-        </span>
-      </button>
-    </header>
+        <use
+          xlinkHref="/assets/icons/utility-sprite/svg/symbols.svg#close"
+        />
+      </svg>
+      <span
+        className="slds-assistive-text"
+      >
+        Cancel and close
+      </span>
+    </button>
+    <div
+      className="slds-modal__header slds-modal__header_empty"
+    />
     <div
       className="slds-modal__content slds-welcome-mat__content slds-grid"
       id="welcome-mat-20-content"
@@ -422,7 +421,6 @@ exports[`Composed Welcome Mat Snapshots renders a deprecated welcome mat 1`] = `
 
 exports[`Composed Welcome Mat Snapshots renders a splash welcome mat 1`] = `
 <section
-  aria-describedby="welcome-mat-13-content"
   aria-labelledby="welcome-mat-13-label"
   aria-modal="true"
   className="slds-modal slds-fade-in-open slds-modal_small"
@@ -432,29 +430,28 @@ exports[`Composed Welcome Mat Snapshots renders a splash welcome mat 1`] = `
   <div
     className="slds-modal__container"
   >
-    <header
-      className="slds-modal__header slds-modal__header_empty"
+    <button
+      className="slds-button slds-button_icon slds-modal__close slds-button_icon-inverse"
+      disabled={false}
+      onClick={[Function]}
     >
-      <button
-        className="slds-button slds-button_icon slds-modal__close slds-button_icon-inverse"
-        onClick={[Function]}
-        title="Close"
+      <svg
+        aria-hidden={true}
+        className="slds-button__icon slds-button__icon_large"
       >
-        <svg
-          aria-hidden={true}
-          className="slds-button__icon slds-button__icon_large"
-        >
-          <use
-            xlinkHref="/assets/icons/utility-sprite/svg/symbols.svg#close"
-          />
-        </svg>
-        <span
-          className="slds-assistive-text"
-        >
-          Close
-        </span>
-      </button>
-    </header>
+        <use
+          xlinkHref="/assets/icons/utility-sprite/svg/symbols.svg#close"
+        />
+      </svg>
+      <span
+        className="slds-assistive-text"
+      >
+        Cancel and close
+      </span>
+    </button>
+    <div
+      className="slds-modal__header slds-modal__header_empty"
+    />
     <div
       className="slds-modal__content"
       id="welcome-mat-13-content"
@@ -541,7 +538,6 @@ exports[`Composed Welcome Mat Snapshots renders a splash welcome mat 1`] = `
 
 exports[`Composed Welcome Mat Snapshots renders a trailhead welcome mat 1`] = `
 <section
-  aria-describedby="welcome-mat-7-content"
   aria-labelledby="welcome-mat-7-label"
   aria-modal="true"
   className="slds-modal slds-fade-in-open slds-modal_small"
@@ -551,29 +547,28 @@ exports[`Composed Welcome Mat Snapshots renders a trailhead welcome mat 1`] = `
   <div
     className="slds-modal__container"
   >
-    <header
-      className="slds-modal__header slds-modal__header_empty"
+    <button
+      className="slds-button slds-button_icon slds-modal__close slds-button_icon-inverse"
+      disabled={false}
+      onClick={[Function]}
     >
-      <button
-        className="slds-button slds-button_icon slds-modal__close slds-button_icon-inverse"
-        onClick={[Function]}
-        title="Close"
+      <svg
+        aria-hidden={true}
+        className="slds-button__icon slds-button__icon_large"
       >
-        <svg
-          aria-hidden={true}
-          className="slds-button__icon slds-button__icon_large"
-        >
-          <use
-            xlinkHref="/assets/icons/utility-sprite/svg/symbols.svg#close"
-          />
-        </svg>
-        <span
-          className="slds-assistive-text"
-        >
-          Close
-        </span>
-      </button>
-    </header>
+        <use
+          xlinkHref="/assets/icons/utility-sprite/svg/symbols.svg#close"
+        />
+      </svg>
+      <span
+        className="slds-assistive-text"
+      >
+        Cancel and close
+      </span>
+    </button>
+    <div
+      className="slds-modal__header slds-modal__header_empty"
+    />
     <div
       className="slds-modal__content"
       id="welcome-mat-7-content"
@@ -1039,7 +1034,6 @@ exports[`Composed Welcome Mat Snapshots renders a trailhead welcome mat 1`] = `
 
 exports[`Composed Welcome Mat Snapshots renders a welcome mat 1`] = `
 <section
-  aria-describedby="welcome-mat-1-content"
   aria-labelledby="welcome-mat-1-label"
   aria-modal="true"
   className="slds-modal slds-fade-in-open slds-modal_small"
@@ -1049,29 +1043,28 @@ exports[`Composed Welcome Mat Snapshots renders a welcome mat 1`] = `
   <div
     className="slds-modal__container"
   >
-    <header
-      className="slds-modal__header slds-modal__header_empty"
+    <button
+      className="slds-button slds-button_icon slds-modal__close slds-button_icon-inverse"
+      disabled={false}
+      onClick={[Function]}
     >
-      <button
-        className="slds-button slds-button_icon slds-modal__close slds-button_icon-inverse"
-        onClick={[Function]}
-        title="Close"
+      <svg
+        aria-hidden={true}
+        className="slds-button__icon slds-button__icon_large"
       >
-        <svg
-          aria-hidden={true}
-          className="slds-button__icon slds-button__icon_large"
-        >
-          <use
-            xlinkHref="/assets/icons/utility-sprite/svg/symbols.svg#close"
-          />
-        </svg>
-        <span
-          className="slds-assistive-text"
-        >
-          Close
-        </span>
-      </button>
-    </header>
+        <use
+          xlinkHref="/assets/icons/utility-sprite/svg/symbols.svg#close"
+        />
+      </svg>
+      <span
+        className="slds-assistive-text"
+      >
+        Cancel and close
+      </span>
+    </button>
+    <div
+      className="slds-modal__header slds-modal__header_empty"
+    />
     <div
       className="slds-modal__content"
       id="welcome-mat-1-content"
@@ -1507,7 +1500,6 @@ exports[`Composed Welcome Mat Snapshots renders a welcome mat 1`] = `
 
 exports[`Composed Welcome Mat Snapshots renders an info-only welcome mat 1`] = `
 <section
-  aria-describedby="welcome-mat-14-content"
   aria-labelledby="welcome-mat-14-label"
   aria-modal="true"
   className="slds-modal slds-fade-in-open slds-modal_small"
@@ -1517,29 +1509,28 @@ exports[`Composed Welcome Mat Snapshots renders an info-only welcome mat 1`] = `
   <div
     className="slds-modal__container"
   >
-    <header
-      className="slds-modal__header slds-modal__header_empty"
+    <button
+      className="slds-button slds-button_icon slds-modal__close slds-button_icon-inverse"
+      disabled={false}
+      onClick={[Function]}
     >
-      <button
-        className="slds-button slds-button_icon slds-modal__close slds-button_icon-inverse"
-        onClick={[Function]}
-        title="Close"
+      <svg
+        aria-hidden={true}
+        className="slds-button__icon slds-button__icon_large"
       >
-        <svg
-          aria-hidden={true}
-          className="slds-button__icon slds-button__icon_large"
-        >
-          <use
-            xlinkHref="/assets/icons/utility-sprite/svg/symbols.svg#close"
-          />
-        </svg>
-        <span
-          className="slds-assistive-text"
-        >
-          Close
-        </span>
-      </button>
-    </header>
+        <use
+          xlinkHref="/assets/icons/utility-sprite/svg/symbols.svg#close"
+        />
+      </svg>
+      <span
+        className="slds-assistive-text"
+      >
+        Cancel and close
+      </span>
+    </button>
+    <div
+      className="slds-modal__header slds-modal__header_empty"
+    />
     <div
       className="slds-modal__content"
       id="welcome-mat-14-content"

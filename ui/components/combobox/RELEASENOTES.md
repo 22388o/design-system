@@ -4,6 +4,34 @@
 
 <!-- ## [Unreleased] -->
 
+## 2.23.0
+
+### Changed
+
+- Updated Combobox disabled color
+
+## 2.22.0
+### Added 
+- Tooltip option provided for Date/DateTime pickers.
+- Updated from tabindex to tabIndex.
+## 2.21.0
+### Fixed
+- Fixed by adding tabindex for `scrollable region must have keyboard access` wcag issue
+- Fixed by adding dynamic Ids for duplicate-id-aria issue
+- Fixed by adding unique Ids,aria-label for `aria-allowed-attr` wcag issue
+
+## 2.21.0
+
+## Added
+
+Added `aria-label` to meet accessibility requirements specifically for screen readers.
+
+## 2.17.3
+
+## Fixed
+
+- Fixed spacing/alignment issue in `.slds-input_faux > span` for select-only combobox without a placeholder.
+
 ## 2.16.2
 
 ## Removed

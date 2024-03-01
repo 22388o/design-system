@@ -20,7 +20,7 @@ props:
 
   WELCOME_MAT_BACKGROUND_IMAGE_INFO:
     type: string
-    value: '/assets/images/welcome-mat/bg-info@2x.png'
+    value: '/welcome-mat/bg-info@2x.png'
     comment: Background Image Path for the Welcome Mat Info section
 
   WELCOME_MAT_BACKGROUND_COLOR_INFO:
@@ -28,7 +28,7 @@ props:
     comment: Background overflow color for the Welcome Mat Info section
 
   WELCOME_MAT_COLOR_BACKGROUND_PROGRESS_BAR:
-    value: '{!PALETTE_GRAY_1}'
+    value: '{!PALETTE_NEUTRAL_100}'
     comment: Progress Bar background is white
 
   WELCOME_MAT_COLOR_ACTION_SHADOW:
@@ -36,5 +36,5 @@ props:
     comment: Box Shadow declaration
 
   WELCOME_MAT_COLOR_ICON_COMPLETE:
-    value: '{!PALETTE_GRAY_6}'
+    value: '{!PALETTE_NEUTRAL_80}'
     comment: Completed icon color for the Welcome Mat Boxes

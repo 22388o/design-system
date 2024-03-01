@@ -23,7 +23,7 @@
 
       &:before {
         content: '';
-        background: $color-border;
+        background: var(--slds-g-color-border-base-4, #{$color-border});
         height: 100%;
         width: $border-width-thin;
         position: absolute;
@@ -36,28 +36,28 @@
     }
 
     .slds-avatar {
-      border: $border-width-thick solid $color-background-alt;
+      border: $border-width-thick solid var(--slds-g-color-neutral-base-100, #{$color-background-alt});
     }
   }
 
   // Comment entity tags
   .slds-tags {
     display: flex;
+  }
 
-    &__list {
-      display: flex;
+  .slds-tags__list {
+    display: flex;
+  }
+
+  .slds-tags__item {
+    margin-left: $spacing-xx-small;
+
+    &:after {
+      content: ', ';
     }
 
-    &__item {
-      margin-left: $spacing-xx-small;
-
-      &:after {
-        content: ', ';
-      }
-
-      &:last-child:after {
-        content: none;
-      }
+    &:last-child:after {
+      content: none;
     }
   }
 

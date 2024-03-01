@@ -10,7 +10,6 @@ exports[`List Builder Inline Edit renders a default list builder with inline edi
   }
 >
   <section
-    aria-describedby="modal-content-id-1"
     aria-modal="true"
     className="slds-modal slds-fade-in-open slds-modal_large"
     role="dialog"
@@ -19,39 +18,39 @@ exports[`List Builder Inline Edit renders a default list builder with inline edi
     <div
       className="slds-modal__container"
     >
-      <header
+      <button
+        className="slds-button slds-button_icon slds-modal__close slds-button_icon-inverse"
+        disabled={false}
+        onClick={[Function]}
+      >
+        <svg
+          aria-hidden={true}
+          className="slds-button__icon slds-button__icon_large"
+        >
+          <use
+            xlinkHref="/assets/icons/utility-sprite/svg/symbols.svg#close"
+          />
+        </svg>
+        <span
+          className="slds-assistive-text"
+        >
+          Cancel and close
+        </span>
+      </button>
+      <div
         className="slds-modal__header"
       >
-        <button
-          className="slds-button slds-button_icon slds-modal__close slds-button_icon-inverse"
-          onClick={[Function]}
-          title="Close"
-        >
-          <svg
-            aria-hidden={true}
-            className="slds-button__icon slds-button__icon_large"
-          >
-            <use
-              xlinkHref="/assets/icons/utility-sprite/svg/symbols.svg#close"
-            />
-          </svg>
-          <span
-            className="slds-assistive-text"
-          >
-            Close
-          </span>
-        </button>
-        <h2
+        <h1
           className="slds-text-heading_medium"
         >
           Edit all products
-        </h2>
+        </h1>
         <p
           className="slds-m-top_x-small"
         >
           Edit the details of the products associated with your opportunity
         </p>
-      </header>
+      </div>
       <div
         className="slds-modal__content slds-grid slds-nowrap"
         id="modal-content-id-1"
@@ -654,10 +653,11 @@ exports[`List Builder Inline Edit renders a default list builder with inline edi
           </div>
         </div>
       </div>
-      <footer
+      <div
         className="slds-modal__footer slds-modal__footer_directional"
       >
         <button
+          aria-label="Cancel and close"
           className="slds-button slds-button_neutral"
         >
           Cancel
@@ -667,11 +667,12 @@ exports[`List Builder Inline Edit renders a default list builder with inline edi
         >
           Save
         </button>
-      </footer>
+      </div>
     </div>
   </section>
   <div
     className="slds-backdrop slds-backdrop_open"
+    role="presentation"
   />
 </div>
 `;
@@ -686,8 +687,7 @@ exports[`List Builder renders a default list builder 1`] = `
   }
 >
   <section
-    aria-describedby="modal-content-id-1"
-    aria-labelledby="id-of-modalheader-h2"
+    aria-labelledby="id-of-modalheader-h1"
     aria-modal="true"
     className="slds-modal slds-fade-in-open slds-modal_large slds-list-builder"
     role="dialog"
@@ -696,40 +696,40 @@ exports[`List Builder renders a default list builder 1`] = `
     <div
       className="slds-modal__container"
     >
-      <header
+      <button
+        className="slds-button slds-button_icon slds-modal__close slds-button_icon-inverse"
+        disabled={false}
+        onClick={[Function]}
+      >
+        <svg
+          aria-hidden={true}
+          className="slds-button__icon slds-button__icon_large"
+        >
+          <use
+            xlinkHref="/assets/icons/utility-sprite/svg/symbols.svg#close"
+          />
+        </svg>
+        <span
+          className="slds-assistive-text"
+        >
+          Cancel and close
+        </span>
+      </button>
+      <div
         className="slds-modal__header"
       >
-        <button
-          className="slds-button slds-button_icon slds-modal__close slds-button_icon-inverse"
-          onClick={[Function]}
-          title="Close"
-        >
-          <svg
-            aria-hidden={true}
-            className="slds-button__icon slds-button__icon_large"
-          >
-            <use
-              xlinkHref="/assets/icons/utility-sprite/svg/symbols.svg#close"
-            />
-          </svg>
-          <span
-            className="slds-assistive-text"
-          >
-            Close
-          </span>
-        </button>
-        <h2
+        <h1
           className="slds-text-heading_medium"
-          id="id-of-modalheader-h2"
+          id="id-of-modalheader-h1"
         >
           Add products
-        </h2>
+        </h1>
         <p
           className="slds-m-top_x-small"
         >
           Pricebook: Salesforce Products
         </p>
-      </header>
+      </div>
       <div
         className="slds-modal__content slds-grid slds-grow"
         id="modal-content-id-1"
@@ -1912,10 +1912,11 @@ exports[`List Builder renders a default list builder 1`] = `
           </div>
         </div>
       </div>
-      <footer
+      <div
         className="slds-modal__footer"
       >
         <button
+          aria-label="Cancel and close"
           className="slds-button slds-button_neutral"
         >
           Cancel
@@ -1925,11 +1926,12 @@ exports[`List Builder renders a default list builder 1`] = `
         >
           Next
         </button>
-      </footer>
+      </div>
     </div>
   </section>
   <div
     className="slds-backdrop slds-backdrop_open"
+    role="presentation"
   />
 </div>
 `;
@@ -1944,8 +1946,7 @@ exports[`List Builder renders a list builder with default items disabled 1`] = `
   }
 >
   <section
-    aria-describedby="modal-content-id-1"
-    aria-labelledby="id-of-modalheader-h2"
+    aria-labelledby="id-of-modalheader-h1"
     aria-modal="true"
     className="slds-modal slds-fade-in-open slds-modal_large"
     role="dialog"
@@ -1954,40 +1955,40 @@ exports[`List Builder renders a list builder with default items disabled 1`] = `
     <div
       className="slds-modal__container"
     >
-      <header
+      <button
+        className="slds-button slds-button_icon slds-modal__close slds-button_icon-inverse"
+        disabled={false}
+        onClick={[Function]}
+      >
+        <svg
+          aria-hidden={true}
+          className="slds-button__icon slds-button__icon_large"
+        >
+          <use
+            xlinkHref="/assets/icons/utility-sprite/svg/symbols.svg#close"
+          />
+        </svg>
+        <span
+          className="slds-assistive-text"
+        >
+          Cancel and close
+        </span>
+      </button>
+      <div
         className="slds-modal__header"
       >
-        <button
-          className="slds-button slds-button_icon slds-modal__close slds-button_icon-inverse"
-          onClick={[Function]}
-          title="Close"
-        >
-          <svg
-            aria-hidden={true}
-            className="slds-button__icon slds-button__icon_large"
-          >
-            <use
-              xlinkHref="/assets/icons/utility-sprite/svg/symbols.svg#close"
-            />
-          </svg>
-          <span
-            className="slds-assistive-text"
-          >
-            Close
-          </span>
-        </button>
-        <h2
+        <h1
           className="slds-text-heading_medium"
-          id="id-of-modalheader-h2"
+          id="id-of-modalheader-h1"
         >
           Add products
-        </h2>
+        </h1>
         <p
           className="slds-m-top_x-small"
         >
           Pricebook: Salesforce Products
         </p>
-      </header>
+      </div>
       <div
         className="slds-modal__content slds-grid slds-nowrap"
         id="modal-content-id-1"
@@ -3178,10 +3179,11 @@ exports[`List Builder renders a list builder with default items disabled 1`] = `
           </div>
         </div>
       </div>
-      <footer
+      <div
         className="slds-modal__footer"
       >
         <button
+          aria-label="Cancel and close"
           className="slds-button slds-button_neutral"
         >
           Cancel
@@ -3191,11 +3193,12 @@ exports[`List Builder renders a list builder with default items disabled 1`] = `
         >
           Next
         </button>
-      </footer>
+      </div>
     </div>
   </section>
   <div
     className="slds-backdrop slds-backdrop_open"
+    role="presentation"
   />
 </div>
 `;
@@ -3210,8 +3213,7 @@ exports[`List Builder renders a list builder with filtered results 1`] = `
   }
 >
   <section
-    aria-describedby="modal-content-id-1"
-    aria-labelledby="id-of-modalheader-h2"
+    aria-labelledby="id-of-modalheader-h1"
     aria-modal="true"
     className="slds-modal slds-fade-in-open slds-modal_large"
     role="dialog"
@@ -3220,40 +3222,40 @@ exports[`List Builder renders a list builder with filtered results 1`] = `
     <div
       className="slds-modal__container"
     >
-      <header
+      <button
+        className="slds-button slds-button_icon slds-modal__close slds-button_icon-inverse"
+        disabled={false}
+        onClick={[Function]}
+      >
+        <svg
+          aria-hidden={true}
+          className="slds-button__icon slds-button__icon_large"
+        >
+          <use
+            xlinkHref="/assets/icons/utility-sprite/svg/symbols.svg#close"
+          />
+        </svg>
+        <span
+          className="slds-assistive-text"
+        >
+          Cancel and close
+        </span>
+      </button>
+      <div
         className="slds-modal__header"
       >
-        <button
-          className="slds-button slds-button_icon slds-modal__close slds-button_icon-inverse"
-          onClick={[Function]}
-          title="Close"
-        >
-          <svg
-            aria-hidden={true}
-            className="slds-button__icon slds-button__icon_large"
-          >
-            <use
-              xlinkHref="/assets/icons/utility-sprite/svg/symbols.svg#close"
-            />
-          </svg>
-          <span
-            className="slds-assistive-text"
-          >
-            Close
-          </span>
-        </button>
-        <h2
+        <h1
           className="slds-text-heading_medium"
-          id="id-of-modalheader-h2"
+          id="id-of-modalheader-h1"
         >
           Add products
-        </h2>
+        </h1>
         <p
           className="slds-m-top_x-small"
         >
           Pricebook: Salesforce Products
         </p>
-      </header>
+      </div>
       <div
         className="slds-modal__content slds-grid slds-grow"
         id="modal-content-id-1"
@@ -3885,10 +3887,11 @@ exports[`List Builder renders a list builder with filtered results 1`] = `
           </div>
         </div>
       </div>
-      <footer
+      <div
         className="slds-modal__footer"
       >
         <button
+          aria-label="Cancel and close"
           className="slds-button slds-button_neutral"
         >
           Cancel
@@ -3898,11 +3901,12 @@ exports[`List Builder renders a list builder with filtered results 1`] = `
         >
           Next
         </button>
-      </footer>
+      </div>
     </div>
   </section>
   <div
     className="slds-backdrop slds-backdrop_open"
+    role="presentation"
   />
 </div>
 `;
@@ -3917,8 +3921,7 @@ exports[`List Builder renders a list builder with hidden header 1`] = `
   }
 >
   <section
-    aria-describedby="modal-content-id-1"
-    aria-labelledby="id-of-modalheader-h2"
+    aria-labelledby="id-of-modalheader-h1"
     aria-modal="true"
     className="slds-modal slds-fade-in-open slds-modal_large"
     role="dialog"
@@ -3927,40 +3930,40 @@ exports[`List Builder renders a list builder with hidden header 1`] = `
     <div
       className="slds-modal__container"
     >
-      <header
+      <button
+        className="slds-button slds-button_icon slds-modal__close slds-button_icon-inverse"
+        disabled={false}
+        onClick={[Function]}
+      >
+        <svg
+          aria-hidden={true}
+          className="slds-button__icon slds-button__icon_large"
+        >
+          <use
+            xlinkHref="/assets/icons/utility-sprite/svg/symbols.svg#close"
+          />
+        </svg>
+        <span
+          className="slds-assistive-text"
+        >
+          Cancel and close
+        </span>
+      </button>
+      <div
         className="slds-modal__header"
       >
-        <button
-          className="slds-button slds-button_icon slds-modal__close slds-button_icon-inverse"
-          onClick={[Function]}
-          title="Close"
-        >
-          <svg
-            aria-hidden={true}
-            className="slds-button__icon slds-button__icon_large"
-          >
-            <use
-              xlinkHref="/assets/icons/utility-sprite/svg/symbols.svg#close"
-            />
-          </svg>
-          <span
-            className="slds-assistive-text"
-          >
-            Close
-          </span>
-        </button>
-        <h2
+        <h1
           className="slds-text-heading_medium"
-          id="id-of-modalheader-h2"
+          id="id-of-modalheader-h1"
         >
           Add products
-        </h2>
+        </h1>
         <p
           className="slds-m-top_x-small"
         >
           Pricebook: Salesforce Products
         </p>
-      </header>
+      </div>
       <div
         className="slds-modal__content slds-grid slds-nowrap"
         id="modal-content-id-1"
@@ -4680,10 +4683,11 @@ exports[`List Builder renders a list builder with hidden header 1`] = `
           </div>
         </div>
       </div>
-      <footer
+      <div
         className="slds-modal__footer"
       >
         <button
+          aria-label="Cancel and close"
           className="slds-button slds-button_neutral"
         >
           Cancel
@@ -4693,11 +4697,12 @@ exports[`List Builder renders a list builder with hidden header 1`] = `
         >
           Next
         </button>
-      </footer>
+      </div>
     </div>
   </section>
   <div
     className="slds-backdrop slds-backdrop_open"
+    role="presentation"
   />
 </div>
 `;
@@ -4712,8 +4717,7 @@ exports[`List Builder renders a list builder with items disabled 1`] = `
   }
 >
   <section
-    aria-describedby="modal-content-id-1"
-    aria-labelledby="id-of-modalheader-h2"
+    aria-labelledby="id-of-modalheader-h1"
     aria-modal="true"
     className="slds-modal slds-fade-in-open slds-modal_large"
     role="dialog"
@@ -4722,40 +4726,40 @@ exports[`List Builder renders a list builder with items disabled 1`] = `
     <div
       className="slds-modal__container"
     >
-      <header
+      <button
+        className="slds-button slds-button_icon slds-modal__close slds-button_icon-inverse"
+        disabled={false}
+        onClick={[Function]}
+      >
+        <svg
+          aria-hidden={true}
+          className="slds-button__icon slds-button__icon_large"
+        >
+          <use
+            xlinkHref="/assets/icons/utility-sprite/svg/symbols.svg#close"
+          />
+        </svg>
+        <span
+          className="slds-assistive-text"
+        >
+          Cancel and close
+        </span>
+      </button>
+      <div
         className="slds-modal__header"
       >
-        <button
-          className="slds-button slds-button_icon slds-modal__close slds-button_icon-inverse"
-          onClick={[Function]}
-          title="Close"
-        >
-          <svg
-            aria-hidden={true}
-            className="slds-button__icon slds-button__icon_large"
-          >
-            <use
-              xlinkHref="/assets/icons/utility-sprite/svg/symbols.svg#close"
-            />
-          </svg>
-          <span
-            className="slds-assistive-text"
-          >
-            Close
-          </span>
-        </button>
-        <h2
+        <h1
           className="slds-text-heading_medium"
-          id="id-of-modalheader-h2"
+          id="id-of-modalheader-h1"
         >
           Add products
-        </h2>
+        </h1>
         <p
           className="slds-m-top_x-small"
         >
           Pricebook: Salesforce Products
         </p>
-      </header>
+      </div>
       <div
         className="slds-modal__content slds-grid slds-nowrap"
         id="modal-content-id-1"
@@ -5946,10 +5950,11 @@ exports[`List Builder renders a list builder with items disabled 1`] = `
           </div>
         </div>
       </div>
-      <footer
+      <div
         className="slds-modal__footer"
       >
         <button
+          aria-label="Cancel and close"
           className="slds-button slds-button_neutral"
         >
           Cancel
@@ -5959,11 +5964,12 @@ exports[`List Builder renders a list builder with items disabled 1`] = `
         >
           Next
         </button>
-      </footer>
+      </div>
     </div>
   </section>
   <div
     className="slds-backdrop slds-backdrop_open"
+    role="presentation"
   />
 </div>
 `;
@@ -5978,8 +5984,7 @@ exports[`List Builder renders a list builder with items selected 1`] = `
   }
 >
   <section
-    aria-describedby="modal-content-id-1"
-    aria-labelledby="id-of-modalheader-h2"
+    aria-labelledby="id-of-modalheader-h1"
     aria-modal="true"
     className="slds-modal slds-fade-in-open slds-modal_large"
     role="dialog"
@@ -5988,40 +5993,40 @@ exports[`List Builder renders a list builder with items selected 1`] = `
     <div
       className="slds-modal__container"
     >
-      <header
+      <button
+        className="slds-button slds-button_icon slds-modal__close slds-button_icon-inverse"
+        disabled={false}
+        onClick={[Function]}
+      >
+        <svg
+          aria-hidden={true}
+          className="slds-button__icon slds-button__icon_large"
+        >
+          <use
+            xlinkHref="/assets/icons/utility-sprite/svg/symbols.svg#close"
+          />
+        </svg>
+        <span
+          className="slds-assistive-text"
+        >
+          Cancel and close
+        </span>
+      </button>
+      <div
         className="slds-modal__header"
       >
-        <button
-          className="slds-button slds-button_icon slds-modal__close slds-button_icon-inverse"
-          onClick={[Function]}
-          title="Close"
-        >
-          <svg
-            aria-hidden={true}
-            className="slds-button__icon slds-button__icon_large"
-          >
-            <use
-              xlinkHref="/assets/icons/utility-sprite/svg/symbols.svg#close"
-            />
-          </svg>
-          <span
-            className="slds-assistive-text"
-          >
-            Close
-          </span>
-        </button>
-        <h2
+        <h1
           className="slds-text-heading_medium"
-          id="id-of-modalheader-h2"
+          id="id-of-modalheader-h1"
         >
           Add products
-        </h2>
+        </h1>
         <p
           className="slds-m-top_x-small"
         >
           Pricebook: Salesforce Products
         </p>
-      </header>
+      </div>
       <div
         className="slds-modal__content slds-grid slds-nowrap"
         id="modal-content-id-1"
@@ -7246,10 +7251,11 @@ exports[`List Builder renders a list builder with items selected 1`] = `
           </div>
         </div>
       </div>
-      <footer
+      <div
         className="slds-modal__footer"
       >
         <button
+          aria-label="Cancel and close"
           className="slds-button slds-button_neutral"
         >
           Cancel
@@ -7259,11 +7265,12 @@ exports[`List Builder renders a list builder with items selected 1`] = `
         >
           Next
         </button>
-      </footer>
+      </div>
     </div>
   </section>
   <div
     className="slds-backdrop slds-backdrop_open"
+    role="presentation"
   />
 </div>
 `;

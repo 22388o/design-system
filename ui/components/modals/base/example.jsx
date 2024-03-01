@@ -14,56 +14,95 @@ import ButtonIcon from '../../button-icons/';
 
 export const exampleDemoStyles = 'height: 640px;';
 
-export const Context = props => (
-  <div style={{ height: '640px' }}>{props.children}</div>
-);
+const PlaceholderParagraphs = () => {
+  return [
+    <p key="first-p">
+      Sit nulla est ex deserunt exercitation anim occaecat. Nostrud ullamco
+      deserunt aute id consequat veniam incididunt duis in sint irure nisi.
+      Mollit officia cillum Lorem ullamco minim nostrud elit officia tempor
+      esse quis. Cillum sunt ad dolore quis aute consequat ipsum magna
+      exercitation reprehenderit magna. Tempor cupidatat consequat elit
+      dolor adipisicing.
+    </p>,
+    <p key="second-p">
+      Dolor eiusmod sunt ex incididunt cillum quis nostrud velit duis sit
+      officia. Lorem aliqua enim laboris do dolor eiusmod officia. Mollit
+      incididunt nisi consectetur esse laborum eiusmod pariatur proident.
+      Eiusmod et adipisicing culpa deserunt nostrud ad veniam nulla aute
+      est. Labore esse esse cupidatat amet velit id elit consequat minim
+      ullamco mollit enim excepteur ea.
+    </p>
+  ];
+};
 
-export let Backdrop = props => {
+export let Backdrop = (props) => {
   return (
     <Fragment>
       {props.children}
-      <div className="slds-backdrop slds-backdrop_open" />
+      <div className="slds-backdrop slds-backdrop_open" role="presentation" />
     </Fragment>
   );
 };
 
-export let Modal = props => (
+export let Modal = (props) => (
   <section
     role="dialog"
     tabIndex={props.tabIndex}
-    {...props}
     aria-modal="true"
-    aria-describedby={props['aria-describedby'] || 'modal-content-id-1'}
+    aria-label={props['aria-label']}
+    aria-labelledby={props['aria-labelledby']}
+    aria-describedby={props['aria-describedby']}
     className={classNames('slds-modal slds-fade-in-open', props.className)}
   >
-    <div className="slds-modal__container">{props.children}</div>
+    <div className="slds-modal__container">
+      {
+        props.closeButton !== false ? (
+          <ButtonIcon
+            className="slds-modal__close slds-button_icon-inverse"
+            iconClassName="slds-button__icon_large"
+            symbol="close"
+            assistiveText="Cancel and close"
+            disabled={props.closeButtonDisabled}
+          />
+        ) : null
+      }
+      {props.children}</div>
   </section>
 );
 
 Modal.propTypes = {
-  tabIndex: PropTypes.oneOf(['-1', '0'])
+  tabIndex: PropTypes.oneOf(['-1', '0']),
+  closeButtonDisabled: PropTypes.bool,
+  isFullSize: PropTypes.bool,
 };
 
 Modal.defaultProps = {
-  tabIndex: '-1'
+  tabIndex: '-1',
+  closeButtonDisabled: false,
+  isFullSize: false,
 };
 
-export let ModalHeader = props => (
-  <header className={classNames('slds-modal__header', props.className)}>
-    {props.closeButton !== 'false' ? (
+export let ModalHeader = (props) => (
+  <div className={classNames('slds-modal__header', props.className)}>
+    {props.children}
+  </div>
+);
+
+export let ModalHeaderDeprecated = (props) => (
+  <div className={classNames('slds-modal__header', props.className)}>
+    {props.closeButton !== false ? (
       <ButtonIcon
         className="slds-modal__close slds-button_icon-inverse"
         iconClassName="slds-button__icon_large"
         symbol="close"
-        title="Close"
-        assistiveText="Close"
+        assistiveText="Cancel and close"
       />
     ) : null}
     {props.children}
-  </header>
+  </div>
 );
 
-export let ModalContent = props => (
+export let ModalContent = (props) => (
   <div
     className={classNames('slds-modal__content', props.className)}
     id={props.id ? props.id : props['aria-describedby'] || 'modal-content-id-1'}
@@ -80,31 +119,31 @@ export let ModalMenu = ({ id, children }) => (
 
 ModalMenu.propTypes = {
   id: PropTypes.string.isRequired,
-  children: PropTypes.node
+  children: PropTypes.node,
 };
 
-export let ModalFooter = props => (
-  <footer className={classNames('slds-modal__footer', props.className)}>
+export let ModalFooter = (props) => (
+  <div className={classNames('slds-modal__footer', props.className)}>
     {props.children}
-  </footer>
+  </div>
 );
 
 /// ///////////////////////////////////////////
 // State Constructor(s)
 /// ///////////////////////////////////////////
 
-export let Taglines = props => (
+export let Taglines = (props) => (
   <Backdrop>
     <Modal aria-labelledby="modal-heading-01">
       <ModalHeader>
-        <h2 id="modal-heading-01" className="slds-modal__title slds-hyphenate">
+        <h1 id="modal-heading-01" className="slds-modal__title slds-hyphenate">
           Modal header
-        </h2>
+        </h1>
         <p className="slds-m-top_x-small">
           Here&rsquo;s a tagline if you need it. It is allowed to extend across
           mulitple lines, so I&rsquo;m making up content to show that to you. It
           is allowed to{' '}
-          <a href="#" onClick={e => e.preventDefault()}>
+          <a href="#" onClick={(e) => e.preventDefault()}>
             contain links or be a link
           </a>
           .
@@ -129,48 +168,39 @@ export let Taglines = props => (
         </p>
       </ModalContent>
       <ModalFooter>
-        <button className="slds-button slds-button_neutral">Cancel</button>
+        <button className="slds-button slds-button_neutral" aria-label="Cancel and close">Cancel</button>
         <button className="slds-button slds-button_brand">Save</button>
       </ModalFooter>
     </Modal>
   </Backdrop>
 );
 
-export let ModalSizes = props => (
+export let ModalSizes = (props) => (
   <Backdrop>
     <Modal
       className={classNames(
         props.size === 'small' && 'slds-modal_small',
         props.size === 'medium' && 'slds-modal_medium',
-        props.size === 'large' && 'slds-modal_large'
+        props.size === 'large' && 'slds-modal_large',
+        props.size === 'full' && 'slds-modal_full'
       )}
+      isFullSize={props.size === 'full'}
       aria-labelledby="modal-heading-01"
     >
       <ModalHeader>
-        <h2 id="modal-heading-01" className="slds-modal__title slds-hyphenate">
+        <h1 id="modal-heading-01" className="slds-modal__title slds-hyphenate">
           Modal header
-        </h2>
+        </h1>
       </ModalHeader>
-      <ModalContent className="slds-p-around_medium">
-        <p>
-          Sit nulla est ex deserunt exercitation anim occaecat. Nostrud ullamco
-          deserunt aute id consequat veniam incididunt duis in sint irure nisi.
-          Mollit officia cillum Lorem ullamco minim nostrud elit officia tempor
-          esse quis. Cillum sunt ad dolore quis aute consequat ipsum magna
-          exercitation reprehenderit magna. Tempor cupidatat consequat elit
-          dolor adipisicing.
-        </p>
-        <p>
-          Dolor eiusmod sunt ex incididunt cillum quis nostrud velit duis sit
-          officia. Lorem aliqua enim laboris do dolor eiusmod officia. Mollit
-          incididunt nisi consectetur esse laborum eiusmod pariatur proident.
-          Eiusmod et adipisicing culpa deserunt nostrud ad veniam nulla aute
-          est. Labore esse esse cupidatat amet velit id elit consequat minim
-          ullamco mollit enim excepteur ea.
-        </p>
+      <ModalContent className='slds-p-around_medium'>
+        <PlaceholderParagraphs />
+        <br />
+        <PlaceholderParagraphs />
+        <br />
+        <PlaceholderParagraphs />
       </ModalContent>
       <ModalFooter>
-        <button className="slds-button slds-button_neutral">Cancel</button>
+        <button className="slds-button slds-button_neutral" aria-label="Cancel and close">Cancel</button>
         <button className="slds-button slds-button_brand">Save</button>
       </ModalFooter>
     </Modal>
@@ -178,16 +208,120 @@ export let ModalSizes = props => (
 );
 
 ModalSizes.propTypes = {
-  size: PropTypes.oneOf(['small', 'medium', 'large'])
+  size: PropTypes.oneOf(['small', 'medium', 'large', 'full']),
 };
 
-export let Directional = props => (
+export let FullTaglines = (props) => (
+  <Backdrop>
+    <Modal
+      aria-labelledby="modal-heading-01"
+      className={classNames(
+        props.size === 'full' &&
+        'slds-modal_full'
+      )}
+      isFullSize={props.size === 'full'}>
+      <ModalHeader>
+        <h1 id="modal-heading-01" className="slds-modal__title slds-hyphenate">
+          Modal header
+        </h1>
+        <p className="slds-m-top_x-small">
+          Here&rsquo;s a tagline if you need it. It is allowed to extend across
+          mulitple lines, so I&rsquo;m making up content to show that to you. It
+          is allowed to{' '}
+          <a href="#" onClick={(e) => e.preventDefault()}>
+            contain links or be a link
+          </a>
+          .
+        </p>
+      </ModalHeader>
+      <ModalContent className={classNames(
+        props.size === 'full' && 'slds-modal_full-content slds-p-around_medium'
+      )}>
+        <PlaceholderParagraphs />
+      </ModalContent>
+      <ModalFooter>
+        <button className="slds-button slds-button_neutral" aria-label="Cancel and close">Cancel</button>
+        <button className="slds-button slds-button_brand">Save</button>
+      </ModalFooter>
+    </Modal>
+  </Backdrop>
+);
+
+FullTaglines.propTypes = {
+  size: PropTypes.oneOf(['small', 'medium', 'large', 'full']),
+};
+
+export let FullHeadless = (props) => (
+  <Backdrop>
+    <Modal
+      className={classNames(
+        props.size === 'full' &&
+        'slds-modal_full'
+      )}
+      aria-labelledby="modal-heading-01"
+      isFullSize={props.size === 'full'}
+    >
+      <ModalContent className={classNames(
+        props.size === 'full' && 'slds-modal_full-content slds-p-around_medium slds-modal__content_headless'
+      )}
+      >
+        <PlaceholderParagraphs />
+        <br />
+        <PlaceholderParagraphs />
+        <br />
+        <PlaceholderParagraphs />
+      </ModalContent>
+      <ModalFooter>
+        <button className="slds-button slds-button_neutral" aria-label="Cancel and close">Cancel</button>
+        <button className="slds-button slds-button_brand">Save</button>
+      </ModalFooter>
+    </Modal>
+  </Backdrop>
+);
+
+FullHeadless.propTypes = {
+  size: PropTypes.oneOf(['small', 'medium', 'large', 'full']),
+};
+
+export let FullFootless = (props) => (
+  <Backdrop>
+    <Modal
+      className={classNames(
+        props.size === 'full' &&
+        'slds-modal_full'
+      )}
+      aria-labelledby="modal-heading-01"
+      isFullSize={props.size === 'full'}
+    >
+      <ModalHeader>
+        <h1 id="modal-heading-01" className="slds-modal__title slds-hyphenate">
+          Modal header
+        </h1>
+      </ModalHeader>
+      <ModalContent className={classNames(
+        props.size === 'full' && 'slds-modal_full-content slds-p-around_medium'
+      )}>
+        <PlaceholderParagraphs />
+        <br />
+        <PlaceholderParagraphs />
+        <br />
+        <PlaceholderParagraphs />
+      </ModalContent>
+    </Modal>
+  </Backdrop>
+);
+
+FullFootless.propTypes = {
+  size: PropTypes.oneOf(['small', 'medium', 'large', 'full']),
+};
+
+export let Directional = (props) => (
   <Backdrop>
     <Modal aria-labelledby="modal-heading-01">
       <ModalHeader>
-        <h2 id="modal-heading-01" className="slds-modal__title slds-hyphenate">
+        <h1 id="modal-heading-01" className="slds-modal__title slds-hyphenate">
           Modal header
-        </h2>
+        </h1>
       </ModalHeader>
       <ModalContent className="slds-p-around_medium">
         <p>
@@ -219,11 +353,10 @@ export let Directional = props => (
   </Backdrop>
 );
 
-export let Headless = props => (
+export let Headless = (props) => (
   <Backdrop>
     <Modal aria-label="Meaningful description of the modal content">
-      <ModalHeader className="slds-modal__header_empty" />
-      <ModalContent className="slds-p-around_medium">
+      <ModalContent className="slds-p-around_medium slds-modal__content_headless">
         <p>
           Sit nulla est ex deserunt exercitation anim occaecat. Nostrud ullamco
           deserunt aute id consequat veniam incididunt duis in sint irure nisi.
@@ -242,20 +375,20 @@ export let Headless = props => (
         </p>
       </ModalContent>
       <ModalFooter>
-        <button className="slds-button slds-button_neutral">Cancel</button>
+        <button className="slds-button slds-button_neutral" aria-label="Cancel and close">Cancel</button>
         <button className="slds-button slds-button_brand">Save</button>
       </ModalFooter>
     </Modal>
   </Backdrop>
 );
 
-export let Footless = props => (
+export let Footless = (props) => (
   <Backdrop>
     <Modal aria-labelledby="modal-heading-01">
       <ModalHeader>
-        <h2 id="modal-heading-01" className="slds-modal__title slds-hyphenate">
+        <h1 id="modal-heading-01" className="slds-modal__title slds-hyphenate" tabindex="-1">
           Modal header
-        </h2>
+        </h1>
       </ModalHeader>
       <ModalContent className="slds-p-around_medium">
         <p>
@@ -279,13 +412,13 @@ export let Footless = props => (
   </Backdrop>
 );
 
-export let HiddenFooter = props => (
+export let HiddenFooter = (props) => (
   <Backdrop>
     <Modal aria-labelledby="modal-heading-01">
       <ModalHeader>
-        <h2 id="modal-heading-01" className="slds-modal__title slds-hyphenate">
+        <h1 id="modal-heading-01" className="slds-modal__title slds-hyphenate">
           Modal header
-        </h2>
+        </h1>
       </ModalHeader>
       <ModalContent className="slds-modal__content_has-hidden-footer slds-p-around_medium">
         <p>
@@ -305,7 +438,57 @@ export let HiddenFooter = props => (
           ullamco mollit enim excepteur ea.
         </p>
       </ModalContent>
-      <ModalFooter className="slds-hide" />
+    </Modal>
+  </Backdrop>
+);
+
+export let HeadlessAndFootless = (props) => (
+  <Backdrop>
+    <Modal aria-labelledby="modal-content-id-1">
+      <ModalContent className="slds-modal__content_headless slds-modal__content_footless slds-p-around_medium">
+        <p>
+          Sit nulla est ex deserunt exercitation anim occaecat. Nostrud ullamco
+          deserunt aute id consequat veniam incididunt duis in sint irure nisi.
+          Mollit officia cillum Lorem ullamco minim nostrud elit officia tempor
+          esse quis. Cillum sunt ad dolore quis aute consequat ipsum magna
+          exercitation reprehenderit magna. Tempor cupidatat consequat elit
+          dolor adipisicing.
+        </p>
+        <p>
+          Dolor eiusmod sunt ex incididunt cillum quis nostrud velit duis sit
+          officia. Lorem aliqua enim laboris do dolor eiusmod officia. Mollit
+          incididunt nisi consectetur esse laborum eiusmod pariatur proident.
+          Eiusmod et adipisicing culpa deserunt nostrud ad veniam nulla aute
+          est. Labore esse esse cupidatat amet velit id elit consequat minim
+          ullamco mollit enim excepteur ea.
+        </p>
+      </ModalContent>
+    </Modal>
+  </Backdrop>
+);
+
+export let HeadlessAndFootlessDeprecated = (props) => (
+  <Backdrop>
+    <Modal aria-labelledby="modal-content-id-1">
+      <ModalHeader className="slds-modal__header_empty" />
+      <ModalContent className="slds-p-around_medium">
+        <p>
+          Sit nulla est ex deserunt exercitation anim occaecat. Nostrud ullamco
+          deserunt aute id consequat veniam incididunt duis in sint irure nisi.
+          Mollit officia cillum Lorem ullamco minim nostrud elit officia tempor
+          esse quis. Cillum sunt ad dolore quis aute consequat ipsum magna
+          exercitation reprehenderit magna. Tempor cupidatat consequat elit
+          dolor adipisicing.
+        </p>
+        <p>
+          Dolor eiusmod sunt ex incididunt cillum quis nostrud velit duis sit
+          officia. Lorem aliqua enim laboris do dolor eiusmod officia. Mollit
+          incididunt nisi consectetur esse laborum eiusmod pariatur proident.
+          Eiusmod et adipisicing culpa deserunt nostrud ad veniam nulla aute
+          est. Labore esse esse cupidatat amet velit id elit consequat minim
+          ullamco mollit enim excepteur ea.
+        </p>
+      </ModalContent>
     </Modal>
   </Backdrop>
 );
@@ -318,7 +501,6 @@ export const Menu = () => {
     <Backdrop>
       <Modal
         aria-labelledby={uniqueIDHeading}
-        aria-describedby={uniqueIDContent}
       >
         <ModalHeader>
           <Heading
@@ -352,6 +534,66 @@ export const Menu = () => {
   );
 };
 
+export let DisabledClose = (props) => (
+  <Backdrop>
+    <Modal aria-labelledby="modal-heading-01" closeButtonDisabled>
+      <ModalHeader>
+        <h1 id="modal-heading-01" className="slds-modal__title slds-hyphenate">
+          Modal header
+        </h1>
+      </ModalHeader>
+      <ModalContent className="slds-p-around_medium">
+        <p>
+          Sit nulla est ex deserunt exercitation anim occaecat. Nostrud ullamco
+          deserunt aute id consequat veniam incididunt duis in sint irure nisi.
+          Mollit officia cillum Lorem ullamco minim nostrud elit officia tempor
+          esse quis. Cillum sunt ad dolore quis aute consequat ipsum magna
+          exercitation reprehenderit magna. Tempor cupidatat consequat elit
+          dolor adipisicing.
+        </p>
+        <p>
+          Dolor eiusmod sunt ex incididunt cillum quis nostrud velit duis sit
+          officia. Lorem aliqua enim laboris do dolor eiusmod officia. Mollit
+          incididunt nisi consectetur esse laborum eiusmod pariatur proident.
+          Eiusmod et adipisicing culpa deserunt nostrud ad veniam nulla aute
+          est. Labore esse esse cupidatat amet velit id elit consequat minim
+          ullamco mollit enim excepteur ea.
+        </p>
+      </ModalContent>
+    </Modal>
+  </Backdrop>
+);
+
+export let DeprecatedClose = (props) => (
+  <Backdrop>
+    <Modal aria-labelledby="modal-heading-01" closeButton={false}>
+      <ModalHeaderDeprecated>
+        <h1 id="modal-heading-01" className="slds-modal__title slds-hyphenate">
+          Modal header
+        </h1>
+      </ModalHeaderDeprecated>
+      <ModalContent className="slds-p-around_medium">
+        <p>
+          Sit nulla est ex deserunt exercitation anim occaecat. Nostrud ullamco
+          deserunt aute id consequat veniam incididunt duis in sint irure nisi.
+          Mollit officia cillum Lorem ullamco minim nostrud elit officia tempor
+          esse quis. Cillum sunt ad dolore quis aute consequat ipsum magna
+          exercitation reprehenderit magna. Tempor cupidatat consequat elit
+          dolor adipisicing.
+        </p>
+        <p>
+          Dolor eiusmod sunt ex incididunt cillum quis nostrud velit duis sit
+          officia. Lorem aliqua enim laboris do dolor eiusmod officia. Mollit
+          incididunt nisi consectetur esse laborum eiusmod pariatur proident.
+          Eiusmod et adipisicing culpa deserunt nostrud ad veniam nulla aute
+          est. Labore esse esse cupidatat amet velit id elit consequat minim
+          ullamco mollit enim excepteur ea.
+        </p>
+      </ModalContent>
+    </Modal>
+  </Backdrop>
+);
+
 /// ///////////////////////////////////////////
 // Export
 /// ///////////////////////////////////////////
@@ -360,9 +602,9 @@ const defaultComponent = (
   <Backdrop>
     <Modal aria-labelledby="modal-heading-01">
       <ModalHeader>
-        <h2 id="modal-heading-01" className="slds-modal__title slds-hyphenate">
+        <h1 id="modal-heading-01" className="slds-modal__title slds-hyphenate">
           Modal header
-        </h2>
+        </h1>
       </ModalHeader>
       <ModalContent className="slds-p-around_medium">
         <p>
@@ -383,76 +625,124 @@ const defaultComponent = (
         </p>
       </ModalContent>
       <ModalFooter>
-        <button className="slds-button slds-button_neutral">Cancel</button>
+        <button className="slds-button slds-button_neutral" aria-label="Cancel and close">Cancel</button>
         <button className="slds-button slds-button_brand">Save</button>
       </ModalFooter>
     </Modal>
   </Backdrop>
 );
 
-export default defaultComponent;
-
-export const examples = [
+export default [
   {
     id: 'default',
     label: 'Default',
     demoStyles: exampleDemoStyles,
-    element: <Taglines />
+    storybookStyles: true,
+    element: defaultComponent,
+  },
+];
+
+export const examples = [
+  {
+    id: 'full',
+    label: 'Full',
+    demoStyles: exampleDemoStyles,
+    element: <ModalSizes size="full" />,
+  },
+  {
+    id: 'full-tagline',
+    label: 'Full Tagline',
+    demoStyles: exampleDemoStyles,
+    element: <FullTaglines size="full" />,
+  },
+  {
+    id: 'full-headless',
+    label: 'Full Headless',
+    demoStyles: exampleDemoStyles,
+    element: <FullHeadless size="full" />,
+  },
+  {
+    id: 'full-footless',
+    label: 'Full Footless',
+    demoStyles: exampleDemoStyles,
+    element: <FullFootless size="full" />,
   },
   {
     id: 'taglines',
     label: 'Taglines',
     demoStyles: exampleDemoStyles,
-    element: <Taglines />
+    element: <Taglines />,
   },
   {
     id: 'headless',
-    label: 'Header empty',
+    label: 'Header empty (Headless)',
     demoStyles: exampleDemoStyles,
-    element: <Headless />
+    element: <Headless />,
   },
   {
     id: 'footless',
-    label: 'Footer removed',
+    label: 'Footer removed (Footless)',
     demoStyles: exampleDemoStyles,
-    element: <Footless />
+    element: <Footless />,
   },
   {
     id: 'hidden-footer',
     label: 'Footer hidden but not removed (not public)',
     demoStyles: exampleDemoStyles,
-    element: <HiddenFooter />
+    element: <HiddenFooter />,
+  },
+  {
+    id: 'headless-and-footless',
+    label: 'Headless and Footless',
+    demoStyles: exampleDemoStyles,
+    element: <HeadlessAndFootless />,
+  },
+  {
+    id: 'headless-and-footless-deprecated',
+    label: 'Headless and Footless - deprecated',
+    demoStyles: exampleDemoStyles,
+    element: <HeadlessAndFootlessDeprecated />,
   },
   {
     id: 'large',
     label: 'Large',
     demoStyles: exampleDemoStyles,
-    element: <ModalSizes size="large" />
+    element: <ModalSizes size="large" />,
   },
   {
     id: 'medium',
     label: 'Medium',
     demoStyles: exampleDemoStyles,
-    element: <ModalSizes size="medium" />
+    element: <ModalSizes size="medium" />,
   },
   {
     id: 'small',
     label: 'Small',
     demoStyles: exampleDemoStyles,
-    element: <ModalSizes size="small" />
+    element: <ModalSizes size="small" />,
   },
   {
     id: 'directional',
     label: 'Directional',
     demoStyles: exampleDemoStyles,
-    element: <Directional />
+    element: <Directional />,
   },
   {
     id: 'menu',
-    label: 'Menu',
+    label: 'Deprecated - Menu',
     demoStyles: exampleDemoStyles,
-    element: <Menu />
-  }
+    element: <Menu />,
+  },
+  {
+    id: 'disabled-close',
+    label: 'Disabled Close Button (internal only)',
+    demoStyles: exampleDemoStyles,
+    element: <DisabledClose />,
+  },
+  {
+    id: 'deprecated-close',
+    label: 'Deprecated - Old Close Button',
+    demoStyles: exampleDemoStyles,
+    element: <DeprecatedClose />,
+  },
 ];
-
-export const states = [];

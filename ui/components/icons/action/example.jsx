@@ -11,7 +11,7 @@ export let ActionIcon = props => {
     <span
       className={classNames(
         'slds-icon_container slds-icon_container_circle slds-icon-action-' +
-          symbol
+        symbol
       )}
       title={props.title || 'Description of icon when needed'}
     >
@@ -31,4 +31,10 @@ export let ActionIcon = props => {
 // Export
 /// ///////////////////////////////////////////
 
-export default <ActionIcon />;
+export default [
+  {
+    id: 'action-default',
+    label: 'Action - Default',
+    element: <ActionIcon />
+  }
+]

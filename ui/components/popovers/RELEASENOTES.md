@@ -1,8 +1,27 @@
 <!-- Release notes authoring guidelines: http://keepachangelog.com/ -->
 
 # Popovers Release Notes
+## 2.21.0
+
+### Added button to the story `body-max-height-small` to fix scrollable-region-focusable wcag issue.
+
+### Added
+
+- Added `title` attribute to meet accessibility requirements.
+
+## 2.19
+
+### Fixed
+
+- Fixed hardcoded walk through header and alt image paths
 
 <!-- ## [Unreleased] -->
+
+## 2.18.0
+
+### Changed
+
+- Removed `@noflip` annotation from nubbins to make RTL behavior consistent
 
 ## 2.15.0
 

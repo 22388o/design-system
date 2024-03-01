@@ -17,7 +17,13 @@ const errorId = 'error_01';
 /// ////////////////////////////////////////
 
 let Fieldset = props => (
-  <fieldset className={classNames('slds-form-element', props.className)}>
+  <fieldset
+    className={classNames(
+      'slds-form-element',
+      { 'slds-is-required': props.required },
+      props.className
+    )}
+  >
     {props.children}
   </fieldset>
 );
@@ -144,7 +150,7 @@ export let Group = props => (
 );
 
 export let GroupRequired = props => (
-  <Fieldset>
+  <Fieldset required>
     <Legend>
       <abbr className="slds-required" title="required">
         *
@@ -159,7 +165,7 @@ export let GroupRequired = props => (
 );
 
 export let GroupError = props => (
-  <Fieldset className="slds-has-error">
+  <Fieldset required className="slds-has-error">
     <Legend>
       <abbr className="slds-required" title="required">
         *
@@ -190,17 +196,65 @@ export let GroupDisabled = props => (
 // Export
 /// ///////////////////////////////////////////
 
-export default (
-  <FormElement>
-    <Checkbox label={checkboxLabel} checked />
-  </FormElement>
-);
+export default [
+  {
+    id: 'default',
+    label: 'Default',
+    element: (
+      <FormElement>
+        <Checkbox label={checkboxLabel} checked />
+      </FormElement>
+    )
+  }
+];
 
 export let states = [
   {
     id: 'required',
     label: 'Required',
     element: <Required />
+  },
+  {
+    id: 'required-with-long-label',
+    label: 'Required with long label',
+    demoStyles: 'width: 200px',
+    storybookStyles: true,
+    element: (
+      <FormElement>
+        <Checkbox label="When you wake up in the morning, it's a quarter to one, And you want to have a little fun. You brush your teeth, ch ch ch ch, ch ch ch ch. You brush your teeth, ch ch ch ch, ch ch ch ch">
+          <abbr className="slds-required" title="required">
+            *
+          </abbr>
+        </Checkbox>
+      </FormElement>
+    )
+  },
+  {
+    id: 'required-not-form-element-long-label',
+    label: 'Required (Not Form Element) with long label',
+    demoStyles: 'width: 200px',
+    storybookStyles: true,
+    element: (
+      <Checkbox label="When you wake up in the morning, it's a quarter to one, And you want to have a little fun. You brush your teeth, ch ch ch ch, ch ch ch ch. You brush your teeth, ch ch ch ch, ch ch ch ch">
+        <abbr className="slds-required" title="required">
+          *
+        </abbr>
+      </Checkbox>
+    )
+  },
+  {
+    id: 'required-optional-mix',
+    label: 'Required/Optional Combination',
+    element: (
+      <FormElement>
+        <Checkbox label={checkboxLabel}>
+          <abbr className="slds-required" title="required">
+            *
+          </abbr>
+        </Checkbox>
+        <Checkbox label={checkboxLabel} />
+      </FormElement>
+    )
   },
   {
     id: 'error',
@@ -225,6 +279,64 @@ export let states = [
 ];
 
 export let examples = [
+  {
+    id: 'wrapping-text',
+    label: 'Checkboxes with Wrapping Text',
+    demoStyles: `width: 210px`,
+    storybookStyles: true,
+    element: (
+      <FormElement>
+        <Checkbox label="Early Morning (12 AM - 8 AM)" checked />
+        <Checkbox label="Morning (8 AM - 12 PM)" />
+        <Checkbox label="Afternoon (12 PM - 5 PM)" />
+        <Checkbox label="Evening (5 PM - 12 AM)" />
+      </FormElement>
+    )
+  },
+  {
+    id: 'wrapping-text-required-group',
+    label: 'Required Checkboxes with Wrapping Text',
+    demoStyles: `width: 210px`,
+    storybookStyles: true,
+    element: (
+      <Fieldset>
+        <Legend>
+          <abbr className="slds-required" title="required">
+            *{' '}
+          </abbr>
+          Checkbox Group Label
+        </Legend>
+        <FormElementControl>
+          <Checkbox label="Early Morning (12 AM - 8 AM)" />
+          <Checkbox label="Morning (8 AM - 12 PM)" />
+          <Checkbox label="Afternoon (12 PM - 5 PM)" />
+          <Checkbox label="Evening (5 PM - 12 AM)" />
+        </FormElementControl>
+      </Fieldset>
+    )
+  },
+  {
+    id: 'long-wrapping-text-required-group',
+    label: 'Required Checkboxes with Abnormally-long Wrapping Text',
+    demoStyles: `width: 210px`,
+    storybookStyles: true,
+    element: (
+      <Fieldset>
+        <Legend>
+          <abbr className="slds-required" title="required">
+            *{' '}
+          </abbr>
+          Checkbox Group Label
+        </Legend>
+        <FormElementControl>
+          <Checkbox label="When you wake up in the morning, it's a quarter to one, And you want to have a little fun. You brush your teeth, ch ch ch ch, ch ch ch ch. You brush your teeth, ch ch ch ch, ch ch ch ch" />
+          <Checkbox label="When you wake up in the morning, it's a quarter to two, And you want to find, something to do. You brush your teeth, ch ch ch ch, ch ch ch ch. You brush your teeth, ch ch ch ch, ch ch ch ch" />
+          <Checkbox label="And when you wake up in the morning, it's a quarter to three, And your mind starts hummin', twiddle dee dee. You brush your teeth, ch ch ch ch, ch ch ch ch. You brush your teeth, ch ch ch ch, ch ch ch ch" />
+          <Checkbox label="When you wake up in the morning, it's a quarter to four, And you think you hear a knock on the door. You brush your teeth, ch ch ch ch, ch ch ch ch. You brush your teeth, ch ch ch ch, ch ch ch ch" />
+        </FormElementControl>
+      </Fieldset>
+    )
+  },
   {
     id: 'group',
     label: 'Group',

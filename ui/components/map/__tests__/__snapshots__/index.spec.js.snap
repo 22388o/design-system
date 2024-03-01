@@ -12,7 +12,7 @@ exports[`Map Container renders map container 1`] = `
     >
       <iframe
         id="GoogleMapID"
-        src="https://www.google.com/maps/embed/v1/place?q=1%20market%2C%20san%20francisco&key=AIzaSyDliLquGXGts9S8YtkWVolSQEJdBL1ZuWc"
+        src="https://sfdc-map.surge.sh/"
         title="Google Maps iframe"
       />
     </div>
@@ -32,7 +32,7 @@ exports[`Map Container renders map container with coordinates 1`] = `
     >
       <iframe
         id="GoogleMapID"
-        src="https://www.google.com/maps/embed/v1/place?q=1%20market%2C%20san%20francisco&key=AIzaSyDliLquGXGts9S8YtkWVolSQEJdBL1ZuWc"
+        src="https://sfdc-map.surge.sh/"
         title="Google Maps iframe"
       />
     </div>
@@ -490,7 +490,7 @@ exports[`Map Container renders map container with heading text 1`] = `
     >
       <iframe
         id="GoogleMapID"
-        src="https://www.google.com/maps/embed/v1/place?q=1%20market%2C%20san%20francisco&key=AIzaSyDliLquGXGts9S8YtkWVolSQEJdBL1ZuWc"
+        src="https://sfdc-map.surge.sh/"
         title="Google Maps iframe"
       />
     </div>
@@ -510,7 +510,7 @@ exports[`Map Container renders map container with selected coordinate 1`] = `
     >
       <iframe
         id="GoogleMapID"
-        src="https://www.google.com/maps/embed/v1/place?q=1%20market%2C%20san%20francisco&key=AIzaSyDliLquGXGts9S8YtkWVolSQEJdBL1ZuWc"
+        src="https://sfdc-map.surge.sh/"
         title="Google Maps iframe"
       />
     </div>
@@ -527,7 +527,6 @@ exports[`renders a map component modal 1`] = `
   }
 >
   <section
-    aria-describedby="modal-content-id-01"
     aria-labelledby="modal-heading-id-01"
     aria-modal="true"
     className="slds-modal slds-fade-in-open slds-modal_medium"
@@ -537,35 +536,35 @@ exports[`renders a map component modal 1`] = `
     <div
       className="slds-modal__container"
     >
-      <header
+      <button
+        className="slds-button slds-button_icon slds-modal__close slds-button_icon-inverse"
+        disabled={false}
+        onClick={[Function]}
+      >
+        <svg
+          aria-hidden={true}
+          className="slds-button__icon slds-button__icon_large"
+        >
+          <use
+            xlinkHref="/assets/icons/utility-sprite/svg/symbols.svg#close"
+          />
+        </svg>
+        <span
+          className="slds-assistive-text"
+        >
+          Cancel and close
+        </span>
+      </button>
+      <div
         className="slds-modal__header"
       >
-        <button
-          className="slds-button slds-button_icon slds-modal__close slds-button_icon-inverse"
-          onClick={[Function]}
-          title="Close"
-        >
-          <svg
-            aria-hidden={true}
-            className="slds-button__icon slds-button__icon_large"
-          >
-            <use
-              xlinkHref="/assets/icons/utility-sprite/svg/symbols.svg#close"
-            />
-          </svg>
-          <span
-            className="slds-assistive-text"
-          >
-            Close
-          </span>
-        </button>
-        <h2
+        <h1
           className="slds-text-heading_medium slds-hyphenate"
           id="modal-heading-id-01"
         >
           Address: 1 Market St, San Francisco, CA 94105
-        </h2>
-      </header>
+        </h1>
+      </div>
       <div
         className="slds-modal__content"
         id="modal-content-id-01"
@@ -599,7 +598,6 @@ exports[`renders a map component modal with coordinates panel 1`] = `
   }
 >
   <section
-    aria-describedby="modal-content-id-01"
     aria-labelledby="modal-heading-id-01"
     aria-modal="true"
     className="slds-modal slds-fade-in-open slds-modal_medium"
@@ -609,35 +607,35 @@ exports[`renders a map component modal with coordinates panel 1`] = `
     <div
       className="slds-modal__container"
     >
-      <header
+      <button
+        className="slds-button slds-button_icon slds-modal__close slds-button_icon-inverse"
+        disabled={false}
+        onClick={[Function]}
+      >
+        <svg
+          aria-hidden={true}
+          className="slds-button__icon slds-button__icon_large"
+        >
+          <use
+            xlinkHref="/assets/icons/utility-sprite/svg/symbols.svg#close"
+          />
+        </svg>
+        <span
+          className="slds-assistive-text"
+        >
+          Cancel and close
+        </span>
+      </button>
+      <div
         className="slds-modal__header"
       >
-        <button
-          className="slds-button slds-button_icon slds-modal__close slds-button_icon-inverse"
-          onClick={[Function]}
-          title="Close"
-        >
-          <svg
-            aria-hidden={true}
-            className="slds-button__icon slds-button__icon_large"
-          >
-            <use
-              xlinkHref="/assets/icons/utility-sprite/svg/symbols.svg#close"
-            />
-          </svg>
-          <span
-            className="slds-assistive-text"
-          >
-            Close
-          </span>
-        </button>
-        <h2
+        <h1
           className="slds-text-heading_medium slds-hyphenate"
           id="modal-heading-id-01"
         >
           Favorite Solar Companies (2)
-        </h2>
-      </header>
+        </h1>
+      </div>
       <div
         className="slds-modal__content"
         id="modal-content-id-01"
@@ -1094,7 +1092,7 @@ exports[`renders a map component modal with coordinates panel 1`] = `
           </div>
         </div>
       </div>
-      <footer
+      <div
         className="slds-modal__footer"
       >
         <button
@@ -1102,7 +1100,7 @@ exports[`renders a map component modal with coordinates panel 1`] = `
         >
           Open in Google Maps
         </button>
-      </footer>
+      </div>
     </div>
   </section>
   <div
@@ -1120,7 +1118,6 @@ exports[`renders a map component modal with first coordinate selected 1`] = `
   }
 >
   <section
-    aria-describedby="modal-content-id-01"
     aria-labelledby="modal-heading-id-01"
     aria-modal="true"
     className="slds-modal slds-fade-in-open slds-modal_medium"
@@ -1130,35 +1127,35 @@ exports[`renders a map component modal with first coordinate selected 1`] = `
     <div
       className="slds-modal__container"
     >
-      <header
+      <button
+        className="slds-button slds-button_icon slds-modal__close slds-button_icon-inverse"
+        disabled={false}
+        onClick={[Function]}
+      >
+        <svg
+          aria-hidden={true}
+          className="slds-button__icon slds-button__icon_large"
+        >
+          <use
+            xlinkHref="/assets/icons/utility-sprite/svg/symbols.svg#close"
+          />
+        </svg>
+        <span
+          className="slds-assistive-text"
+        >
+          Cancel and close
+        </span>
+      </button>
+      <div
         className="slds-modal__header"
       >
-        <button
-          className="slds-button slds-button_icon slds-modal__close slds-button_icon-inverse"
-          onClick={[Function]}
-          title="Close"
-        >
-          <svg
-            aria-hidden={true}
-            className="slds-button__icon slds-button__icon_large"
-          >
-            <use
-              xlinkHref="/assets/icons/utility-sprite/svg/symbols.svg#close"
-            />
-          </svg>
-          <span
-            className="slds-assistive-text"
-          >
-            Close
-          </span>
-        </button>
-        <h2
+        <h1
           className="slds-text-heading_medium slds-hyphenate"
           id="modal-heading-id-01"
         >
           Favorite Solar Companies (2)
-        </h2>
-      </header>
+        </h1>
+      </div>
       <div
         className="slds-modal__content"
         id="modal-content-id-01"
@@ -1617,7 +1614,7 @@ exports[`renders a map component modal with first coordinate selected 1`] = `
           </div>
         </div>
       </div>
-      <footer
+      <div
         className="slds-modal__footer"
       >
         <button
@@ -1625,7 +1622,7 @@ exports[`renders a map component modal with first coordinate selected 1`] = `
         >
           Open in Google Maps
         </button>
-      </footer>
+      </div>
     </div>
   </section>
   <div
@@ -1643,7 +1640,6 @@ exports[`renders a map component modal with footer 1`] = `
   }
 >
   <section
-    aria-describedby="modal-content-id-01"
     aria-labelledby="modal-heading-id-01"
     aria-modal="true"
     className="slds-modal slds-fade-in-open slds-modal_medium"
@@ -1653,35 +1649,35 @@ exports[`renders a map component modal with footer 1`] = `
     <div
       className="slds-modal__container"
     >
-      <header
+      <button
+        className="slds-button slds-button_icon slds-modal__close slds-button_icon-inverse"
+        disabled={false}
+        onClick={[Function]}
+      >
+        <svg
+          aria-hidden={true}
+          className="slds-button__icon slds-button__icon_large"
+        >
+          <use
+            xlinkHref="/assets/icons/utility-sprite/svg/symbols.svg#close"
+          />
+        </svg>
+        <span
+          className="slds-assistive-text"
+        >
+          Cancel and close
+        </span>
+      </button>
+      <div
         className="slds-modal__header"
       >
-        <button
-          className="slds-button slds-button_icon slds-modal__close slds-button_icon-inverse"
-          onClick={[Function]}
-          title="Close"
-        >
-          <svg
-            aria-hidden={true}
-            className="slds-button__icon slds-button__icon_large"
-          >
-            <use
-              xlinkHref="/assets/icons/utility-sprite/svg/symbols.svg#close"
-            />
-          </svg>
-          <span
-            className="slds-assistive-text"
-          >
-            Close
-          </span>
-        </button>
-        <h2
+        <h1
           className="slds-text-heading_medium slds-hyphenate"
           id="modal-heading-id-01"
         >
           Geo Code: 37°48'08.3"N 122°15'55.2W
-        </h2>
-      </header>
+        </h1>
+      </div>
       <div
         className="slds-modal__content"
         id="modal-content-id-01"
@@ -1698,7 +1694,7 @@ exports[`renders a map component modal with footer 1`] = `
           </div>
         </div>
       </div>
-      <footer
+      <div
         className="slds-modal__footer"
       >
         <button
@@ -1706,7 +1702,7 @@ exports[`renders a map component modal with footer 1`] = `
         >
           Open in Google Maps
         </button>
-      </footer>
+      </div>
     </div>
   </section>
   <div
@@ -1724,7 +1720,6 @@ exports[`renders a map component modal with second coordinate selected 1`] = `
   }
 >
   <section
-    aria-describedby="modal-content-id-01"
     aria-labelledby="modal-heading-id-01"
     aria-modal="true"
     className="slds-modal slds-fade-in-open slds-modal_medium"
@@ -1734,35 +1729,35 @@ exports[`renders a map component modal with second coordinate selected 1`] = `
     <div
       className="slds-modal__container"
     >
-      <header
+      <button
+        className="slds-button slds-button_icon slds-modal__close slds-button_icon-inverse"
+        disabled={false}
+        onClick={[Function]}
+      >
+        <svg
+          aria-hidden={true}
+          className="slds-button__icon slds-button__icon_large"
+        >
+          <use
+            xlinkHref="/assets/icons/utility-sprite/svg/symbols.svg#close"
+          />
+        </svg>
+        <span
+          className="slds-assistive-text"
+        >
+          Cancel and close
+        </span>
+      </button>
+      <div
         className="slds-modal__header"
       >
-        <button
-          className="slds-button slds-button_icon slds-modal__close slds-button_icon-inverse"
-          onClick={[Function]}
-          title="Close"
-        >
-          <svg
-            aria-hidden={true}
-            className="slds-button__icon slds-button__icon_large"
-          >
-            <use
-              xlinkHref="/assets/icons/utility-sprite/svg/symbols.svg#close"
-            />
-          </svg>
-          <span
-            className="slds-assistive-text"
-          >
-            Close
-          </span>
-        </button>
-        <h2
+        <h1
           className="slds-text-heading_medium slds-hyphenate"
           id="modal-heading-id-01"
         >
           Favorite Solar Companies (2)
-        </h2>
-      </header>
+        </h1>
+      </div>
       <div
         className="slds-modal__content"
         id="modal-content-id-01"
@@ -2221,7 +2216,7 @@ exports[`renders a map component modal with second coordinate selected 1`] = `
           </div>
         </div>
       </div>
-      <footer
+      <div
         className="slds-modal__footer"
       >
         <button
@@ -2229,7 +2224,7 @@ exports[`renders a map component modal with second coordinate selected 1`] = `
         >
           Open in Google Maps
         </button>
-      </footer>
+      </div>
     </div>
   </section>
   <div

@@ -16,14 +16,15 @@
   overflow: hidden;
   display: inline-block;
   vertical-align: middle;
-  border-radius: var(--sds-c-avatar-radius-border, $border-radius-medium);
+  border-radius: var(--slds-c-avatar-radius-border, var(--sds-c-avatar-radius-border, $border-radius-medium));
   line-height: $line-height-reset;
   font-size: $font-size-heading-small;
-  color: var(--sds-c-avatar-text-color, $color-text-inverse);
+  color: var(--slds-c-avatar-text-color, var(--sds-c-avatar-text-color,
+    var(--slds-g-color-neutral-base-100, #{$color-text-inverse})));
 
   &:hover,
   &:focus:hover {
-    color: currentColor;
+    color: var(--slds-c-avatar-text-color-hover, currentColor);
   }
 
   /**
@@ -33,7 +34,7 @@
    * @restrict .slds-avatar
    */
   &.slds-avatar_group-image-small {
-    background: url($group-default-avatar-small) top left / cover no-repeat;
+    background: url($static-image-path + $group-default-avatar-small) top left / cover no-repeat;
   }
 
   /**
@@ -43,7 +44,7 @@
    * @restrict .slds-avatar
    */
   &.slds-avatar_group-image-medium {
-    background: url($group-default-avatar-medium) top left / cover no-repeat;
+    background: url($static-image-path + $group-default-avatar-medium) top left / cover no-repeat;
   }
 
   /**
@@ -53,7 +54,7 @@
    * @restrict .slds-avatar
    */
   &.slds-avatar_group-image-large {
-    background: url($group-default-avatar) top left / cover no-repeat;
+    background: url($static-image-path + $group-default-avatar) top left / cover no-repeat;
   }
 
   /**
@@ -63,7 +64,7 @@
    * @restrict .slds-avatar
    */
   &.slds-avatar_profile-image-small {
-    background: url($user-default-avatar-small) top left / cover no-repeat;
+    background: url($static-image-path + $user-default-avatar-small) top left / cover no-repeat;
   }
 
   /**
@@ -73,7 +74,7 @@
    * @restrict .slds-avatar
    */
   &.slds-avatar_profile-image-medium {
-    background: url($user-default-avatar-medium) top left / cover no-repeat;
+    background: url($static-image-path + $user-default-avatar-medium) top left / cover no-repeat;
   }
 
   /**
@@ -83,7 +84,7 @@
    * @restrict .slds-avatar
    */
   &.slds-avatar_profile-image-large {
-    background: url($user-default-avatar) top left / cover no-repeat;
+    background: url($static-image-path + $user-default-avatar) top left / cover no-repeat;
   }
 }
 
@@ -176,7 +177,7 @@
 // This isn't a thing so lets not document it
 .slds-avatar_empty,
 .slds-avatar--empty {
-  border: $border-width-thin dashed $color-border;
+  border: $border-width-thin dashed var(--slds-g-color-border-base-1, #{$color-border});
 }
 
 /**
@@ -197,9 +198,9 @@
  */
 .slds-avatar__initials {
   @include absolute-center;
-  color: var(--sds-c-avatar-initials-text-color);
+  color: var(--slds-c-avatar-initials-text-color, var(--sds-c-avatar-initials-text-color));
   height: 100%;
-  text-shadow: 0 0 1px rgba(0, 0, 0, 0.8);
+  text-shadow: 0 0 1px var(--slds-g-color-neutral-10-opacity-75, rgba(0, 0, 0, 0.8));
 
   &[title] { // This selector with title attribute (specificity) gets rid of a bug where the question cursor flashes for a split second as the mouse hits the .slds-avatar. Since we can't rely on someone always including it, the main selector leaves it off.
     cursor: default;
@@ -207,7 +208,7 @@
   }
 
   &:hover {
-    color: var(--sds-c-avatar-initials-text-color-hover, $color-text-inverse);
+    color: var(--slds-c-avatar-initials-text-color-hover, var(--sds-c-avatar-initials-text-color-hover, var(--slds-g-color-neutral-base-100, #{$color-text-inverse})));
     cursor: default;
   }
 }
@@ -221,12 +222,14 @@
  * @group color
  */
 .slds-avatar__initials_inverse {
-  background-color: $color-background;
-  color: $color-text-weak;
+  /*! @css-var-fallback color */
+  --slds-c-avatar-initials-text-color: var(--slds-c-avatar-initials-inverse-text-color, var(--slds-g-color-neutral-base-30, #{$color-text-weak}));
+  background-color: var(--slds-g-color-neutral-base-95, #{$color-background});
   text-shadow: none;
 
   // combat abbr override styling in avatar
   &:hover {
-    color: $color-text-weak;
+    /*! @css-var-fallback color */
+    --slds-c-avatar-initials-text-color-hover: var(--slds-c-avatar-initials-inverse-text-color-hover, var(--slds-g-color-neutral-base-30, #{$color-text-weak}));
   }
 }

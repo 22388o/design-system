@@ -63,13 +63,12 @@ class WelcomeMat extends Component {
       <Modal
         className="slds-modal_small"
         aria-labelledby={welcomeMatLabelId}
-        aria-describedby={welcomeMatDescripId}
       >
         <ModalHeader className="slds-modal__header_empty" />
         <ModalContent id={welcomeMatDescripId}>
           <div className={welcomeMatClass}>
             <div className="slds-welcome-mat__content slds-grid">
-              <div className={welcomeMatInfoClass}>
+              <div className={welcomeMatInfoClass} tabindex="0" role="region">
                 <div className="slds-welcome-mat__info-content">
                   {content({
                     complete: this.completeTileCount(),

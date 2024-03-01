@@ -3,6 +3,17 @@
 
 // I need to associate slds-icon-animated with something since there isn't a base variant
 
+// All SLDS size classes like `slds-r1` and `slds-r9` in one string.
+// This is faster for style calculation than `[class*="slds-r"]`.
+/// @private
+@function all-slds-r () {
+  $result: '';
+  @for $i from 1 through 9 {
+    $result: "#{$result}, .slds-r#{$i}";
+  }
+
+  @return str-slice($result, 3); // Remove initial ", "
+}
 
 /**
  * @summary Containing actionable element that holds the waffle icon
@@ -20,26 +31,26 @@
   &:hover,
   &:focus {
 
-    [class*="slds-r"] {
+    #{all-slds-r()} {
       animation: slds-icon-waffle-throb 2 200ms alternate;
     }
 
     .slds-r1,
     .slds-r2,
     .slds-r3 {
-      background-color: #418fde;
+      background-color: var(--slds-g-color-brand-base-50,#418fde);
     }
 
     .slds-r4,
     .slds-r5,
     .slds-r7 {
-      background-color: #ed8b00;
+      background-color: var(--slds-g-color-warning-base-70,#ed8b00);
     }
 
     .slds-r6,
     .slds-r8,
     .slds-r9 {
-      background-color: #ffb60f;
+      background-color: var(--slds-g-color-palette-yellow-80,#ffb60f);
     }
 
     .slds-r2,
@@ -80,15 +91,16 @@
   display: block;
   cursor: pointer;
 
-  [class*="slds-r"] {
+  #{all-slds-r()} {
     @include square(rem(5px));
-    background-color: $color-background-icon-waffle;
+    background-color: var(--slds-g-color-neutral-base-50, #{$color-background-icon-waffle});
     display: inline-block;
     position: absolute;
     border-radius: $border-radius-circle;
     transition: background-color 100ms;
     transform-origin: 50% 50%;
     will-change: scale, background-color;
+    border: 2px solid transparent;
   }
 
   // Positioning

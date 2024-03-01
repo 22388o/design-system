@@ -21,7 +21,7 @@
  * @restrict .slds-setup-assistant li
  */
 .slds-setup-assistant__item {
-  border-bottom: 1px $color-border-separator-alt solid;
+  border-bottom: 1px var(--slds-g-color-border-base-1, #{$color-border-separator-alt}) solid;
   padding: $spacing-x-large 0;
 
   &:first-child {
@@ -52,6 +52,12 @@
   .slds-progress-ring_large {
     top: 1px;
   }
+
+  .slds-media__figure {
+    @include rtl() {
+      margin-left: $spacing-small;
+    }
+  }
 }
 
 
@@ -63,6 +69,9 @@
  */
 .slds-setup-assistant__step-summary-content {
   margin-right: $spacing-xx-large;
+  @include rtl() {
+    margin-right: $spacing-none;
+  }
 }
 
 /**
@@ -84,4 +93,20 @@
  */
 .slds-setup-assistant__step-detail {
   padding-left: ($square-icon-large-content + $spacing-small);
+  @include rtl() {
+    padding-right: $spacing-large;
+    padding-left: $spacing-medium;
+  }
+
+  .slds-media_center{
+    @include rtl() {
+      margin-right: $spacing-medium;
+    }
+  }
+
+  .slds-media__figure {
+    @include rtl() {
+      margin-left: $spacing-small;
+    }
+  }
 }

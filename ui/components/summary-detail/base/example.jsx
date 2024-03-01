@@ -25,7 +25,7 @@ export const SummaryDetail = props => (
 
 export const SummaryDetailContent = props => (
   <div
-    aria-hidden={props.isOpen ? 'false' : 'true'}
+    hidden={!props.isOpen}
     className={classNames('slds-summary-detail__content', props.className)}
     id={props.referenceId}
   >
@@ -61,28 +61,34 @@ export const Context = props => (
   </div>
 );
 
-export default (
-  <SummaryDetail className="slds-is-open">
-    <SummaryDetailAction
-      referenceId={referenceId}
-      isOpen
-      summaryTitle="Summary Title"
-    />
-    <div>
-      <SummaryDetailTitle>
-        <h3
-          className="slds-text-heading_small slds-truncate"
-          title="summary title"
-        >
-          Summary Title
-        </h3>
-      </SummaryDetailTitle>
-      <SummaryDetailContent referenceId={referenceId} isOpen>
-        <p>{loremText}</p>
-      </SummaryDetailContent>
-    </div>
-  </SummaryDetail>
-);
+export default [
+  {
+    id: 'default',
+    label: 'Default',
+    element: (
+      <SummaryDetail className="slds-is-open">
+        <SummaryDetailAction
+          referenceId={referenceId}
+          isOpen
+          summaryTitle="Summary Title"
+        />
+        <div>
+          <SummaryDetailTitle>
+            <h3
+              className="slds-text-heading_small slds-truncate"
+              title="summary title"
+            >
+              Summary Title
+            </h3>
+          </SummaryDetailTitle>
+          <SummaryDetailContent referenceId={referenceId} isOpen>
+            <p>{loremText}</p>
+          </SummaryDetailContent>
+        </div>
+      </SummaryDetail>
+    )
+  }
+];
 
 export let examples = [
   {
